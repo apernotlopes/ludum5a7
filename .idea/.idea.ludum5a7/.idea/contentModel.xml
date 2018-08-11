@@ -23,9 +23,12 @@
             </e>
             <e p="Floppy.cs" t="Include" />
             <e p="FloppyData.cs" t="Include" />
+            <e p="FloppyDiskSpawner.cs" t="Include" />
             <e p="HardDrive.cs" t="Include" />
             <e p="Storage.cs" t="Include" />
           </e>
+          <e p="DrawCollider.cs" t="Include" />
+          <e p="FloppyReader.cs" t="Include" />
           <e p="Interactable" t="Include">
             <e p="GrabManager.cs" t="Include" />
             <e p="IInteractable.cs" t="Include" />

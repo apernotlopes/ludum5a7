@@ -17,9 +17,9 @@
             <state relative-caret-position="247">
               <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
               <folding>
-                <marker date="1534018631991" expanded="true" signature="6:78" ph="..." />
-                <marker date="1534018631991" expanded="true" signature="136:378" ph="{...}" />
-                <marker date="1534018631991" expanded="true" signature="239:376" ph="{...}" />
+                <marker date="1534022961138" expanded="true" signature="6:78" ph="..." />
+                <marker date="1534022961138" expanded="true" signature="136:378" ph="{...}" />
+                <marker date="1534022961138" expanded="true" signature="239:376" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -29,11 +29,12 @@
         <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/FileData.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="209">
-              <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
               <folding>
-                <marker date="1534018639772" expanded="false" signature="6:120" ph="..." />
-                <marker date="1534018639772" expanded="true" signature="158:327" ph="{...}" />
-                <marker date="1534018639772" expanded="true" signature="284:325" ph="{...}" />
+                <marker date="1534023000411" expanded="false" signature="6:120" ph="..." />
+                <marker date="1534023000411" expanded="true" signature="158:375" ph="{...}" />
+                <marker date="1534023000411" expanded="true" signature="269:290" ph="{...}" />
+                <marker date="1534023000411" expanded="true" signature="332:373" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -45,23 +46,84 @@
             <state relative-caret-position="38">
               <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
               <folding>
-                <marker date="1534012539989" expanded="false" signature="6:78" ph="..." />
-                <marker date="1534012539989" expanded="true" signature="106:147" ph="{...}" />
+                <marker date="1534022961192" expanded="false" signature="6:78" ph="..." />
+                <marker date="1534022961192" expanded="true" signature="106:147" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileGenerator.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FileGenerator.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileGenerator.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+            <state relative-caret-position="362">
+              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
               <folding>
-                <marker date="1534020293733" expanded="true" signature="6:117" ph="..." />
-                <marker date="1534020293733" expanded="true" signature="161:598" ph="{...}" />
-                <marker date="1534020293733" expanded="true" signature="305:538" ph="{...}" />
-                <marker date="1534020293733" expanded="true" signature="575:596" ph="{...}" />
+                <marker date="1534023762552" expanded="true" signature="6:204" ph="..." />
+                <marker date="1534023762552" expanded="true" signature="248:2651" ph="{...}" />
+                <marker date="1534023762552" expanded="true" signature="436:471" ph="{...}" />
+                <marker date="1534023762552" expanded="true" signature="505:700" ph="{...}" />
+                <marker date="1534023762552" expanded="true" signature="726:757" ph="{...}" />
+                <marker date="1534023762552" expanded="true" signature="784:1149" ph="{...}" />
+                <marker date="1534023762552" expanded="true" signature="1184:1661" ph="{...}" />
+                <marker date="1534023762552" expanded="true" signature="1265:1328" ph="{...}" />
+                <marker date="1534023762552" expanded="true" signature="1364:1429" ph="{...}" />
+                <marker date="1534023762552" expanded="true" signature="1465:1528" ph="{...}" />
+                <marker date="1534023762552" expanded="true" signature="1550:1613" ph="{...}" />
+                <marker date="1534023762552" expanded="true" signature="1719:2648" ph="{...}" />
+                <marker date="1534023762552" expanded="true" signature="1828:1986" ph="{...}" />
+                <marker date="1534023762552" expanded="true" signature="2028:2189" ph="{...}" />
+                <marker date="1534023762552" expanded="true" signature="2231:2392" ph="{...}" />
+                <marker date="1534023762552" expanded="true" signature="2436:2608" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Floppy.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Floppy.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+              <folding>
+                <marker date="1534022976238" expanded="false" signature="6:78" ph="..." />
+                <marker date="1534022976238" expanded="true" signature="124:1241" ph="{...}" />
+                <marker date="1534022976238" expanded="true" signature="1085:1091" ph="{...}" />
+                <marker date="1534022976238" expanded="true" signature="1128:1239" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FloppyData.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/FloppyData.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+              <folding>
+                <marker date="1534022961227" expanded="false" signature="6:92" ph="..." />
+                <marker date="1534022961227" expanded="true" signature="133:318" ph="{...}" />
+                <marker date="1534022961227" expanded="true" signature="219:240" ph="{...}" />
+                <marker date="1534022961227" expanded="true" signature="281:316" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FloppyDiskSpawner.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/FloppyDiskSpawner.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+              <folding>
+                <marker date="1534024643862" expanded="false" signature="6:78" ph="..." />
+                <marker date="1534024643862" expanded="true" signature="127:1747" ph="{...}" />
+                <marker date="1534024643862" expanded="true" signature="257:294" ph="{...}" />
+                <marker date="1534024643862" expanded="true" signature="325:1745" ph="{...}" />
+                <marker date="1534024643862" expanded="true" signature="674:1460" ph="{...}" />
+                <marker date="1534024643862" expanded="true" signature="960:1178" ph="{...}" />
+                <marker date="1534024643862" expanded="true" signature="1492:1742" ph="{...}" />
+                <marker date="1534024643862" expanded="true" signature="1665:1732" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -70,12 +132,12 @@
       <file leaf-file-name="JifData.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/JifData.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="8" column="85" selection-start-line="8" selection-start-column="85" selection-end-line="8" selection-end-column="85" />
+            <state relative-caret-position="38">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding>
-                <marker date="1534020069032" expanded="false" signature="6:78" ph="..." />
-                <marker date="1534020069032" expanded="true" signature="111:371" ph="{...}" />
-                <marker date="1534020069032" expanded="true" signature="230:369" ph="{...}" />
+                <marker date="1534022961165" expanded="false" signature="6:78" ph="..." />
+                <marker date="1534022961165" expanded="true" signature="111:351" ph="{...}" />
+                <marker date="1534022961165" expanded="true" signature="210:349" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -84,12 +146,12 @@
       <file leaf-file-name="LelData.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/LelData.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="114">
+              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
               <folding>
-                <marker date="1534018708251" expanded="false" signature="6:78" ph="..." />
-                <marker date="1534018708251" expanded="true" signature="111:378" ph="{...}" />
-                <marker date="1534018708251" expanded="true" signature="239:376" ph="{...}" />
+                <marker date="1534022961176" expanded="false" signature="6:78" ph="..." />
+                <marker date="1534022961176" expanded="true" signature="111:353" ph="{...}" />
+                <marker date="1534022961176" expanded="true" signature="214:351" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -98,12 +160,12 @@
       <file leaf-file-name="TxxxtData.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/TxxxtData.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+            <state relative-caret-position="114">
+              <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
               <folding>
-                <marker date="1534019718452" expanded="false" signature="6:78" ph="..." />
-                <marker date="1534019718452" expanded="true" signature="113:340" ph="{...}" />
-                <marker date="1534019718452" expanded="true" signature="223:338" ph="{...}" />
+                <marker date="1534022961185" expanded="false" signature="6:78" ph="..." />
+                <marker date="1534022961185" expanded="true" signature="113:320" ph="{...}" />
+                <marker date="1534022961185" expanded="true" signature="203:318" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -112,6 +174,7 @@
     </leaf>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/FloppyDiskSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/TxxxtData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Floppy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Storage.cs" root0="FORCE_HIGHLIGHTING" />
@@ -136,14 +199,15 @@
         <option value="$PROJECT_DIR$/Assets/_Scripts/Diskettes/Floppy.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Diskettes/HardDrive.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/FileSizeCalculator.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Diskettes/FloppyData.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/FileGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Diskettes/FileData.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/FileData.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/FapData.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Diskettes/FloppyData.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/JifData.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/LelData.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/TxxxtData.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/JifData.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/FileData.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Diskettes/FloppyDiskSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileGenerator.cs" />
       </list>
     </option>
@@ -200,7 +264,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="file&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="flopp&#9;FILE&#9;file://D:/_projets/ludum5a7/Assets/_Scripts/Diskettes/FloppyData.cs&#10;file&#9;null&#9;null" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -266,13 +330,13 @@
         <state relative-caret-position="190">
           <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
           <folding>
-            <marker date="1534007264620" expanded="true" signature="6:109" ph="..." />
-            <marker date="1534007264620" expanded="true" signature="147:506" ph="{...}" />
-            <marker date="1534007264620" expanded="true" signature="226:265" ph="{...}" />
-            <marker date="1534007264620" expanded="true" signature="303:400" ph="{...}" />
-            <marker date="1534007264620" expanded="true" signature="335:358" ph="{...}" />
-            <marker date="1534007264620" expanded="true" signature="365:397" ph="{...}" />
-            <marker date="1534007264620" expanded="true" signature="428:504" ph="{...}" />
+            <marker date="1534022976258" expanded="true" signature="6:109" ph="..." />
+            <marker date="1534022976258" expanded="true" signature="147:586" ph="{...}" />
+            <marker date="1534022976258" expanded="true" signature="226:265" ph="{...}" />
+            <marker date="1534022976258" expanded="true" signature="476:480" ph="{...}" />
+            <marker date="1534022976258" expanded="true" signature="335:358" ph="{...}" />
+            <marker date="1534022976258" expanded="true" signature="476:477" ph="{...}" />
+            <marker date="1534022976258" expanded="true" signature="508:584" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -325,56 +389,21 @@
         <state relative-caret-position="285">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
-            <marker date="1534016431654" expanded="true" signature="6:32" ph="..." />
-            <marker date="1534016431654" expanded="true" signature="81:253" ph="{...}" />
-            <marker date="1534016431654" expanded="true" signature="133:251" ph="{...}" />
+            <marker date="1534022961236" expanded="true" signature="6:32" ph="..." />
+            <marker date="1534022961236" expanded="true" signature="81:253" ph="{...}" />
+            <marker date="1534022961236" expanded="true" signature="133:251" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/FloppyData.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/TxxxtData.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        <state relative-caret-position="114">
+          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
           <folding>
-            <marker date="1534017166555" expanded="false" signature="6:78" ph="..." />
-            <marker date="1534017166555" expanded="true" signature="141:276" ph="{...}" />
-            <marker date="1534017166555" expanded="true" signature="239:274" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Floppy.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <marker date="1534016300121" expanded="false" signature="6:78" ph="..." />
-            <marker date="1534016300121" expanded="true" signature="109:217" ph="{...}" />
-            <marker date="1534016300121" expanded="true" signature="174:215" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileExtensions.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding>
-            <marker date="1534012539989" expanded="false" signature="6:78" ph="..." />
-            <marker date="1534012539989" expanded="true" signature="106:147" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/FileData.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-          <folding>
-            <marker date="1534018639772" expanded="false" signature="6:120" ph="..." />
-            <marker date="1534018639772" expanded="true" signature="158:327" ph="{...}" />
-            <marker date="1534018639772" expanded="true" signature="284:325" ph="{...}" />
+            <marker date="1534022961185" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534022961185" expanded="true" signature="113:320" ph="{...}" />
+            <marker date="1534022961185" expanded="true" signature="203:318" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -384,58 +413,125 @@
         <state relative-caret-position="247">
           <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
           <folding>
-            <marker date="1534018631991" expanded="true" signature="6:78" ph="..." />
-            <marker date="1534018631991" expanded="true" signature="136:378" ph="{...}" />
-            <marker date="1534018631991" expanded="true" signature="239:376" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/LelData.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <marker date="1534018708251" expanded="false" signature="6:78" ph="..." />
-            <marker date="1534018708251" expanded="true" signature="111:378" ph="{...}" />
-            <marker date="1534018708251" expanded="true" signature="239:376" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/TxxxtData.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding>
-            <marker date="1534019718452" expanded="false" signature="6:78" ph="..." />
-            <marker date="1534019718452" expanded="true" signature="113:340" ph="{...}" />
-            <marker date="1534019718452" expanded="true" signature="223:338" ph="{...}" />
+            <marker date="1534022961138" expanded="true" signature="6:78" ph="..." />
+            <marker date="1534022961138" expanded="true" signature="136:378" ph="{...}" />
+            <marker date="1534022961138" expanded="true" signature="239:376" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/JifData.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="8" column="85" selection-start-line="8" selection-start-column="85" selection-end-line="8" selection-end-column="85" />
+        <state relative-caret-position="38">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding>
-            <marker date="1534020069032" expanded="false" signature="6:78" ph="..." />
-            <marker date="1534020069032" expanded="true" signature="111:371" ph="{...}" />
-            <marker date="1534020069032" expanded="true" signature="230:369" ph="{...}" />
+            <marker date="1534022961165" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534022961165" expanded="true" signature="111:351" ph="{...}" />
+            <marker date="1534022961165" expanded="true" signature="210:349" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Floppy.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <marker date="1534022976238" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534022976238" expanded="true" signature="124:1241" ph="{...}" />
+            <marker date="1534022976238" expanded="true" signature="1085:1091" ph="{...}" />
+            <marker date="1534022976238" expanded="true" signature="1128:1239" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/FileData.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding>
+            <marker date="1534023000411" expanded="false" signature="6:120" ph="..." />
+            <marker date="1534023000411" expanded="true" signature="158:375" ph="{...}" />
+            <marker date="1534023000411" expanded="true" signature="269:290" ph="{...}" />
+            <marker date="1534023000411" expanded="true" signature="332:373" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileData/LelData.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <folding>
+            <marker date="1534022961176" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534022961176" expanded="true" signature="111:353" ph="{...}" />
+            <marker date="1534022961176" expanded="true" signature="214:351" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <folding>
+            <marker date="1534022961192" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534022961192" expanded="true" signature="106:147" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/FloppyData.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <marker date="1534022961227" expanded="false" signature="6:92" ph="..." />
+            <marker date="1534022961227" expanded="true" signature="133:318" ph="{...}" />
+            <marker date="1534022961227" expanded="true" signature="219:240" ph="{...}" />
+            <marker date="1534022961227" expanded="true" signature="281:316" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/Files/FileGenerator.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        <state relative-caret-position="362">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
           <folding>
-            <marker date="1534020293733" expanded="true" signature="6:117" ph="..." />
-            <marker date="1534020293733" expanded="true" signature="161:598" ph="{...}" />
-            <marker date="1534020293733" expanded="true" signature="305:538" ph="{...}" />
-            <marker date="1534020293733" expanded="true" signature="575:596" ph="{...}" />
+            <marker date="1534023762552" expanded="true" signature="6:204" ph="..." />
+            <marker date="1534023762552" expanded="true" signature="248:2651" ph="{...}" />
+            <marker date="1534023762552" expanded="true" signature="436:471" ph="{...}" />
+            <marker date="1534023762552" expanded="true" signature="505:700" ph="{...}" />
+            <marker date="1534023762552" expanded="true" signature="726:757" ph="{...}" />
+            <marker date="1534023762552" expanded="true" signature="784:1149" ph="{...}" />
+            <marker date="1534023762552" expanded="true" signature="1184:1661" ph="{...}" />
+            <marker date="1534023762552" expanded="true" signature="1265:1328" ph="{...}" />
+            <marker date="1534023762552" expanded="true" signature="1364:1429" ph="{...}" />
+            <marker date="1534023762552" expanded="true" signature="1465:1528" ph="{...}" />
+            <marker date="1534023762552" expanded="true" signature="1550:1613" ph="{...}" />
+            <marker date="1534023762552" expanded="true" signature="1719:2648" ph="{...}" />
+            <marker date="1534023762552" expanded="true" signature="1828:1986" ph="{...}" />
+            <marker date="1534023762552" expanded="true" signature="2028:2189" ph="{...}" />
+            <marker date="1534023762552" expanded="true" signature="2231:2392" ph="{...}" />
+            <marker date="1534023762552" expanded="true" signature="2436:2608" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/_Scripts/Diskettes/FloppyDiskSpawner.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+          <folding>
+            <marker date="1534024643862" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534024643862" expanded="true" signature="127:1747" ph="{...}" />
+            <marker date="1534024643862" expanded="true" signature="257:294" ph="{...}" />
+            <marker date="1534024643862" expanded="true" signature="325:1745" ph="{...}" />
+            <marker date="1534024643862" expanded="true" signature="674:1460" ph="{...}" />
+            <marker date="1534024643862" expanded="true" signature="960:1178" ph="{...}" />
+            <marker date="1534024643862" expanded="true" signature="1492:1742" ph="{...}" />
+            <marker date="1534024643862" expanded="true" signature="1665:1732" ph="{...}" />
           </folding>
         </state>
       </provider>

@@ -21,7 +21,7 @@ public class FloppyDiskSpawner : MonoBehaviour
         List<Floppy> floppys = new List<Floppy>();
 
         for (int i = 0; i < totalFile; i++)
-            files.Add(new FileData());
+            files.Add(FileGenerator.Temple.GetRandFile<>());
 
 
         for (int i = 0; i < numberToSpawn; i++)

@@ -9,10 +9,17 @@ using Random = System.Random;
 
 public class FileGenerator : MonoBehaviour
 {
+    public static FileGenerator Temple;
+    
     public Sprite[] Jifs;
     public AudioClip[] Lels;
     public VideoClip[] Faps;
     public TextAsset[] Txxxts;
+
+    private void Awake()
+    {
+        Temple = this;
+    }
 
     private string GetRandName()
     {
@@ -36,7 +43,31 @@ public class FileGenerator : MonoBehaviour
         Txxxts =  Resources.LoadAll("TXXXT", typeof(TextAsset)).Cast<TextAsset>().ToArray();
     }
 
-    public FileData GetRandFile<T>() where T : FileData
+    public FileData GetRandFile()
+    {
+        var v = UnityEngine.Random.value;
+
+        if (v < 1 && v >= 0.6f)
+        {
+            return GetRandFile<JifData>();
+        }
+        if (v < 0.6f && v >= 0.35f)
+        {
+            return GetRandFile<TxxxtData>();
+        }
+        if(v < 0.35f && v >= 0.15f)
+        {
+            return GetRandFile<FapData>();
+        }
+        if(v < 0.15f)
+        {
+            return GetRandFile<LelData>();
+        }
+
+        return GetRandFile<TxxxtData>();
+    }
+
+    private FileData GetRandFile<T>() where T : FileData
     {
         var fileData = new FileData(GetRandName());
         

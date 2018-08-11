@@ -11,6 +11,11 @@ public class FileData
     public FileExtensions Extension;
     public int Size;
 
+    public FileData()
+    {
+        
+    }
+    
     public FileData(string fileName)
     {
         FileName = fileName;
