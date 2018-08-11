@@ -6,7 +6,7 @@ public class JifData : FileData
 {
     public Sprite Image;
     
-    public JifData(string fileName, FileExtensions ext, Sprite image) : base(fileName)
+    public JifData(string fileName, Sprite image) : base(fileName)
     {
         Extension = FileExtensions.JIF;
 

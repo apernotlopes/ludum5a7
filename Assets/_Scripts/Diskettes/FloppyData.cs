@@ -10,6 +10,11 @@ public class FloppyData
 
     public List<FileData> Files;
 
+    public FloppyData()
+    {
+        
+    }
+    
     public FloppyData(string title)
     {
         Title = title;

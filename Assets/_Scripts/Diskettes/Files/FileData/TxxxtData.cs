@@ -6,7 +6,7 @@ public class TxxxtData : FileData
 {
 	public string Text;
 	
-	public TxxxtData(string fileName, FileExtensions ext, string text) : base(fileName)
+	public TxxxtData(string fileName, string text) : base(fileName)
 	{
 		Extension = FileExtensions.TXXXT;
 
