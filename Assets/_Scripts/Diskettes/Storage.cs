@@ -15,16 +15,18 @@ public class Storage : MonoBehaviour
 		Files = new List<FileData>(0);
 	}
 	
-	public void AddFile(FileData data)
+	public bool AddFile(FileData data)
 	{
 		if (data.Size < totalSize)
 		{
-			// add file
+            // add file
+            return true;
 		}
 		else
 		{
-			// not enough space!
-		}
+            // not enough space!
+            return false;
+        }
 	}
 
 	public int GetUsedSpace()
