@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -15,9 +15,11 @@ MonoBehaviour:
   Cover: {fileID: 0}
   SideCover: {fileID: 0}
   Files:
-  - FileName: catsplaying.mp4
+  - FileName: catsplaying
+    Extension: 2
     Image: {fileID: 0}
     Size: 0
   - FileName: 
+    Extension: 0
     Image: {fileID: 0}
     Size: 0
