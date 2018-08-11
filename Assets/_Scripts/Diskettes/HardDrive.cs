@@ -1,8 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class HardDrive : Storage 
+[Serializable]
+public class HardDrive : Storage
 {
-	
+	public Letters Letter;
+
+	private void OnEnable()
+	{
+		totalSize = 1474560 * 2;
+
+		Debug.Log("Drive " + Letter + " " + FileSizeCalculator.BytesToString(totalSize));
+	}
 }

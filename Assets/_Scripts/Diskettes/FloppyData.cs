@@ -1,14 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-
-[CreateAssetMenu]
-public class FloppyData : ScriptableObject
+[Serializable]
+public class FloppyData 
 {
     public string Title;
-    public Sprite Cover;
-    public Sprite SideCover;
 
     public List<FileData> Files;
+
+    public FloppyData()
+    {
+        
+    }
+    
+    public FloppyData(string title)
+    {
+        Title = title;
+    }
 }

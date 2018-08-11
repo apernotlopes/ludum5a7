@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -9,16 +10,23 @@ public class Storage : MonoBehaviour
 
 	public int totalSize;
 
-	public void AddFile(FileData data)
+	public void Format()
+	{
+		Files = new List<FileData>(0);
+	}
+	
+	public bool AddFile(FileData data)
 	{
 		if (data.Size < totalSize)
 		{
-			// add file
+            Files.Add(data);
+            return true;
 		}
 		else
 		{
-			// not enough space!
-		}
+            // not enough space!
+            return false;
+        }
 	}
 
 	public int GetUsedSpace()
