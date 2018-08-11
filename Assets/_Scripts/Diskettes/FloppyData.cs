@@ -7,8 +7,16 @@ using System;
 public class FloppyData 
 {
     public string Title;
-    public Sprite Cover;
-    public Sprite SideCover;
 
     public List<FileData> Files;
+
+    public FloppyData()
+    {
+        
+    }
+    
+    public FloppyData(string title)
+    {
+        Title = title;
+    }
 }
