@@ -23,6 +23,9 @@ public class GrabManager : MonoBehaviour
     public LayerMask iteractableMask;
     public IInteractable currentInteractable;
 
+    public float torqueSpeed = 2.0f;
+    public float cursorDistance = 4.0f;
+
     public bool isInteracting
     {
         get
@@ -76,9 +79,9 @@ public class GrabManager : MonoBehaviour
     {
         if (isInteracting && Input.GetMouseButton(0))
         {
-            _cursor.position = _camera.ScreenToWorldPoint(Input.mousePosition) + _camera.ScreenPointToRay(Input.mousePosition).direction * 5.0f;
+            _cursor.position = _camera.ScreenToWorldPoint(Input.mousePosition) + _camera.ScreenPointToRay(Input.mousePosition).direction * cursorDistance;
             currentInteractable.UpdateInteraction();
-            currentInteractable.Rigidbody.AddTorque(new Vector3(1,1,0) * Input.mouseScrollDelta.y * 2.0f);
+            currentInteractable.Rigidbody.AddTorque(new Vector3(1,1,0) * Input.mouseScrollDelta.y * torqueSpeed);
         }
         else if (isInteracting)
         {
