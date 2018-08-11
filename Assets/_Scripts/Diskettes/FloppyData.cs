@@ -10,5 +10,5 @@ public class FloppyData : ScriptableObject
     public Sprite Cover;
     public Sprite SideCover;
 
-    public FileData[] Files;
+    public List<FileData> Files;
 }
