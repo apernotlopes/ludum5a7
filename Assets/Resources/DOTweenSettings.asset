@@ -23,7 +23,7 @@ MonoBehaviour:
   defaultAutoPlay: 3
   defaultUpdateType: 0
   defaultTimeScaleIndependent: 0
-  defaultEaseType: 1
+  defaultEaseType: 6
   defaultEaseOvershootOrAmplitude: 1.70158
   defaultEasePeriod: 0
   defaultAutoKill: 1
@@ -36,7 +36,7 @@ MonoBehaviour:
     physics2DEnabled: 1
     spriteEnabled: 1
     uiEnabled: 1
-    textMeshProEnabled: 1
+    textMeshProEnabled: 0
     tk2DEnabled: 0
   showPlayingTweens: 0
   showPausedTweens: 0
