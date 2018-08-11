@@ -7,6 +7,7 @@ using UnityEngine;
 public class FileData
 {
     public string FileName;
+    public FileExtensions Extension;
     public Sprite Image;
     public int Size;
 }

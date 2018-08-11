@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Floppy : Storage
+public enum FileExtensions
 {
-    public FloppyData floppyData;
+    JIF,
+    TXXXT,
+    FAP,
+    LEL
 }

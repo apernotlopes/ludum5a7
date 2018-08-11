@@ -1,15 +1,18 @@
 ﻿using System;
 using UnityEngine;
 
-public class RealFileSize : MonoBehaviour 
+public class FileSizeCalculator : MonoBehaviour 
 {
 	private void Start()
 	{
-		var fileInfo  = new System.IO.FileInfo(String.Concat(Application.dataPath, "/Resources/fronde.png"));
+		GetFileSize("fronde.png");
+	}
 
-		var s = BytesToString(fileInfo.Length);
-		
-		Debug.Log(fileInfo.FullName + " is " + s);
+	public string GetFileSize(string fileName)
+	{
+		var fileInfo  = new System.IO.FileInfo(String.Concat(Application.dataPath, "/Resources/", fileName));
+
+		return BytesToString(fileInfo.Length);
 	}
 	
 	String BytesToString(long byteCount)

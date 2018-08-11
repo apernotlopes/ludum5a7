@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
 
-public class HardDrive : Storage 
+[Serializable]
+public class HardDrive : Storage
 {
-	
+	public Letters Letter;
 }

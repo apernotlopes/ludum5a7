@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -9,6 +10,11 @@ public class Storage : MonoBehaviour
 
 	public int totalSize;
 
+	public void Format()
+	{
+		Files = new List<FileData>(0);
+	}
+	
 	public void AddFile(FileData data)
 	{
 		if (data.Size < totalSize)
