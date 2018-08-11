@@ -26,7 +26,7 @@ public class FloppyDiskSpawner : MonoBehaviour
 
         for (int i = 0; i < numberToSpawn; i++)
         {
-            Floppy newFloppy = Instantiate(prefab).GetComponent<Floppy>();
+            Floppy newFloppy = Instantiate(prefab, transform).GetComponent<Floppy>();
             List<FileData> newFloppyFiles = new List<FileData>();
 
             int flieNum = Mathf.RoundToInt(Random.value * 2.0f * (float)averageFiles);

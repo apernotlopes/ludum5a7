@@ -89,6 +89,6 @@ public class GrabManager : MonoBehaviour
 
     public bool DoRaycast(out RaycastHit hit, LayerMask mask)
     {
-        return Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out hit, 10.0f, iteractableMask);
+        return Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out hit, 10.0f, mask);
     }
 }

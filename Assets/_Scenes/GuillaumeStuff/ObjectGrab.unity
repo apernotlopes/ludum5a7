@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 506151063}
   - component: {fileID: 506151062}
   - component: {fileID: 506151061}
+  - component: {fileID: 506151065}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -270,6 +271,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &506151065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 506151060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbbfa0d5bee14ea1bb3a8762969e899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blockSize: 16
+  _entropy: 0.055
+  _noiseContrast: 1
+  _velocityScale: 0.232
+  _diffusion: 0.4
+  _shader: {fileID: 4800000, guid: 998cec7a45d274e3995fbccf2c4480bf, type: 3}
 --- !u!1 &528357292
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +769,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1502936444}
   - component: {fileID: 1502936445}
+  - component: {fileID: 1502936446}
   m_Layer: 0
   m_Name: FloppyReader
   m_TagString: Untagged
@@ -789,6 +808,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1502936446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1502936443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f198ba66d9b5fa2489fdc890540dafee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loaded: 0
 --- !u!1 &1504994820
 GameObject:
   m_ObjectHideFlags: 0
