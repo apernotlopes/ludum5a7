@@ -7,7 +7,7 @@ public class FapData : FileData
 {
     public VideoClip Clip;
     
-    public FapData(string fileName, VideoClip clip) : base(fileName)
+    public FapData(string fileName, FileCategory category, VideoClip clip) : base(fileName, category)
     {
         Extension = FileExtensions.FAP;
 

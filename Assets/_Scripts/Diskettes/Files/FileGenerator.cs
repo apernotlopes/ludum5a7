@@ -21,15 +21,6 @@ public class FileGenerator : MonoBehaviour
         Temple = this;
     }
 
-    private string GetRandName()
-    {
-        var color = new string[]{"blue", "yellow", "red", "green"};
-
-        var animal = new string[] {"panther", "turtle", "bird", "giraffe"};
-
-        return color + "_" + animal;
-    }
-
     private void Start()
     {
         LoadAll();
@@ -69,35 +60,59 @@ public class FileGenerator : MonoBehaviour
 
     private FileData GetRandFile<T>() where T : FileData
     {
-        var fileData = new FileData(GetRandName());
+        var n = GetRandName();
+        var fileData = new FileData(n, FindCategory(n));
         
         if (typeof(T) == typeof(JifData))
         {
             var file = Jifs[UnityEngine.Random.Range(0, Jifs.Length)];
-        
-            fileData = new JifData(GetRandName(), file);
-
+            
+            fileData = new JifData(n, FindCategory(n), file);
         }
         if (typeof(T) == typeof(LelData))
         {
             var file = Lels[UnityEngine.Random.Range(0, Lels.Length)];
             
-            fileData = new LelData(GetRandName(), file);
+            fileData = new LelData(n, FindCategory(n), file);
         }
         if (typeof(T) == typeof(FapData))
         {
             var file = Faps[UnityEngine.Random.Range(0, Faps.Length)];
             
-            fileData = new FapData(GetRandName(), file);
+            fileData = new FapData(n, FindCategory(n), file);
         }
         if (typeof(T) == typeof(TxxxtData))
         {
             var file = Txxxts[UnityEngine.Random.Range(0, Txxxts.Length)];
             
-            fileData = new TxxxtData(GetRandName(), file.text);
+            fileData = new TxxxtData(n, FindCategory(n), file.text);
         }
         
         return fileData;
+    }
+
+    private FileCategory FindCategory(string fileName)
+    {
+        var categories = new string[] {"SOD", "C", "A", "SW", "P", "B", "O", "F"};
+
+        for (int i = 0; i < categories.Length; i++)
+        {
+            if (fileName.StartsWith(categories[i]))
+            {
+                return (FileCategory) i;
+            }
+        }
+
+        return FileCategory.Misc;
+    }
+    
+    private string GetRandName()
+    {
+        var color = new string[]{"blue", "yellow", "red", "green"};
+
+        var animal = new string[] {"panther", "turtle", "bird", "giraffe"};
+
+        return color + "_" + animal;
     }
 
 }

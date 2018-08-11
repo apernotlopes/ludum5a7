@@ -9,6 +9,7 @@ public class FileData
 {
     public string FileName;
     public FileExtensions Extension;
+    public FileCategory Category;
     public int Size;
 
     public FileData()
@@ -16,8 +17,9 @@ public class FileData
         
     }
     
-    public FileData(string fileName)
+    public FileData(string fileName, FileCategory category)
     {
         FileName = fileName;
+        Category = category;
     }
 }
