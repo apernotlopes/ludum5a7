@@ -169,7 +169,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.05, z: 0.9}
+  m_Size: {x: 1.13, y: 0.05, z: 1.13}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114826367773098628
 MonoBehaviour:
@@ -186,10 +186,8 @@ MonoBehaviour:
   totalSize: 0
   floppyData:
     Title: 
-    Cover: {fileID: 0}
-    SideCover: {fileID: 0}
     Files: []
   speed: 200
   readerDetectionMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
