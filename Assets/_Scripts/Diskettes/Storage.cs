@@ -19,7 +19,7 @@ public class Storage : MonoBehaviour
 	{
 		if (data.Size < totalSize)
 		{
-            // add file
+            Files.Add(data);
             return true;
 		}
 		else
