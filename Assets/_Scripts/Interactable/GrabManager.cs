@@ -20,7 +20,7 @@ public class GrabManager : MonoBehaviour
         }
     }
 
-    public LayerMask mask;
+    public LayerMask iteractableMask;
     public IInteractable currentInteractable;
 
     public bool isInteracting
@@ -60,7 +60,7 @@ public class GrabManager : MonoBehaviour
 
         RaycastHit _hit;
 
-        if(Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out _hit, 10.0f, mask))
+        if(DoRaycast(out _hit, iteractableMask))
         {
             IInteractable _interactable = _hit.collider.attachedRigidbody.gameObject.GetComponent<IInteractable>();
 
@@ -85,5 +85,10 @@ public class GrabManager : MonoBehaviour
             currentInteractable.EndInteraction();
             currentInteractable = null;
         }
+    }
+
+    public bool DoRaycast(out RaycastHit hit, LayerMask mask)
+    {
+        return Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out hit, 10.0f, iteractableMask);
     }
 }
