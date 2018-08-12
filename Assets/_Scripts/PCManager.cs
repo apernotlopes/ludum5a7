@@ -34,6 +34,8 @@ public class PCManager : MonoBehaviour
 	public CanvasGroup LoadingCanvas;
 	public CanvasGroup MessageCanvas;
 
+	public Texture2D hourglass;
+
     internal bool viewerActive = false;
     internal bool isHardDrive;
 
@@ -225,9 +227,11 @@ public class PCManager : MonoBehaviour
 		Viewer.fapAnchor.transform.GetChild(0).gameObject.SetActive(false);
 		Viewer.lelAnchor.Stop();
 		
+		
 		if (Reader.Loaded)
 		{
 			Debug.Log("transferring...");
+			Cursor.SetCursor(hourglass, Vector2.zero, CursorMode.Auto);
 			
 			LoadingCanvas.DOFade(1f, 0f);
 			LoadingCanvas.blocksRaycasts = true;
@@ -235,8 +239,6 @@ public class PCManager : MonoBehaviour
 
 			sizeToTransfer = Viewer.currentFile.Size;
 			isTransferring = true;
-			
-			
 		}
 		else
 		{
@@ -246,10 +248,16 @@ public class PCManager : MonoBehaviour
 
 	public void CancelTransfer()
 	{
-		sizeToTransfer = 0;
-		isTransferring = false;
+		EndLoading();
 
 		CloseLoading();
+	}
+
+	private void EndLoading()
+	{
+		sizeToTransfer = 0;
+		isTransferring = false;
+		Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 	}
 
 	private void Update()
@@ -258,26 +266,22 @@ public class PCManager : MonoBehaviour
 		{
 			if (Reader.Loaded)
 			{
-				if (sizeToTransfer > 0)
+				if (sizeToTransfer > 0) // loading
 				{
 					sizeToTransfer -= TransferSpeed * Time.deltaTime;
 					Loading.UpdateBarProgress((float)Mathf.Abs(1 - (sizeToTransfer/Viewer.currentFile.Size)));
 				}
-				if (sizeToTransfer <= 0)
+				if (sizeToTransfer <= 0) // loading finished
 				{
-					isTransferring = false;
-					sizeToTransfer = 0;
+					EndLoading();
 					
 					TransferForReal();
 				}
 			}
 			else
 			{
-				if (sizeToTransfer > 0)
+				if (sizeToTransfer > 0) // loading interrupted
 				{
-					sizeToTransfer = 0;
-					isTransferring = false;
-					// ERROR, floppy removed, CANCEL
 					CancelTransfer();
 					DisplayMessage("Floppy removed!", true);
 				}
