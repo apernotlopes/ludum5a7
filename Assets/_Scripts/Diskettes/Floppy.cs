@@ -23,10 +23,25 @@ public class Floppy : Storage, IInteractable
         foreach (FileData d in FileGenerator.instance.allData[(FileCategory)index])
             capacity += d.Size;
 
+        //Debug
         if (capacity == 0)
         {
             capacity = (int) (Mathf.Pow(2, 20)) * Random.Range(1,3);
         }
+
+        Renderer rend = GetComponentInChildren<Renderer>();
+        Material[] mats = rend.materials;
+
+        float rand = Random.value * 3;
+
+        if (rand > 2)
+            mats[0].SetColor("Color_87CF86FE", new Color(1.0f, Random.value, 0.0f));
+        else if (rand > 1)
+            mats[0].SetColor("Color_87CF86FE", new Color(0.0f, 1.0f, Random.value));
+        else
+            mats[0].SetColor("Color_87CF86FE", new Color(Random.value, 0.0f, 1.0f));
+
+        rend.materials = mats;
     }
 
     void Start()

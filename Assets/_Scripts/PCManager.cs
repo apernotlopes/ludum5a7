@@ -231,7 +231,6 @@ public class PCManager : MonoBehaviour
 		if (Reader.Loaded)
 		{
 			Debug.Log("transferring...");
-			Cursor.SetCursor(hourglass, Vector2.zero, CursorMode.Auto);
 			
 			LoadingCanvas.DOFade(1f, 0f);
 			LoadingCanvas.blocksRaycasts = true;
@@ -257,7 +256,6 @@ public class PCManager : MonoBehaviour
 	{
 		sizeToTransfer = 0;
 		isTransferring = false;
-		Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 	}
 
 	private void Update()
