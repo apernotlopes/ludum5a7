@@ -13,26 +13,22 @@ public class FileViewer : MonoBehaviour
 	public VideoPlayer fapAnchor;
 	public AudioSource lelAnchor;
 	public TextMeshProUGUI txxxtAnchor;
+
+	public FileData currentFile;
 	
 	public Sprite baseIcon;
 	public Sprite lelIcon;
-	
-	public JifData debugJif;
-
-	public FapData debugFap;
-
-	public LelData debugLel;
-
-	public TxxxtData debugTxxxt;
 //
 //	private void Start()
 //	{
 //		Display(debugTxxxt);
 //	}
-
+	
 	public void Display(JifData jif)
 	{
 		Clear();
+
+		currentFile = jif;
 
 		titleBarText.text = jif.FileName + "." + jif.Extension.ToString("f");
 		
@@ -43,6 +39,8 @@ public class FileViewer : MonoBehaviour
 	public void Display(FapData fap)
 	{
 		Clear();
+
+		currentFile = fap;
 
 		titleBarText.text = fap.FileName + "." + fap.Extension.ToString("f");
 		
@@ -55,11 +53,13 @@ public class FileViewer : MonoBehaviour
 	{
 		Clear();
 
+		currentFile = lel;
+
 		titleBarText.text = lel.FileName + "." + lel.Extension.ToString("f");
 
 		jifAnchor.DOFade(1f, 0f);
 		jifAnchor.sprite = lelIcon;
-		lelAnchor.clip = debugLel.Clip;
+		lelAnchor.clip = lel.Clip;
 		lelAnchor.Play();
 		lelAnchor.loop = true;
 	}
@@ -67,14 +67,18 @@ public class FileViewer : MonoBehaviour
 	public void Display(TxxxtData txxxt)
 	{
 		Clear();
+
+		currentFile = txxxt;
 		
 		titleBarText.text = txxxt.FileName + "." + txxxt.Extension.ToString("F");
 
 		txxxtAnchor.text = txxxt.Text;
 	}
 
-	private void Clear()
+	public void Clear()
 	{
+		currentFile = null;
+		
 		jifAnchor.DOFade(0f, 0f);
 		lelAnchor.Stop();
 		fapAnchor.Stop();

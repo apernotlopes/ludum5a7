@@ -27,10 +27,19 @@ public class PCManager : MonoBehaviour
 	public CanvasGroup ViewerCanvas;
 
     internal bool viewerActive = false;
+	private bool lastScreen;
 
     private void Awake()
 	{
 		Instance = this;
+	}
+
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			DisplayExplorer(true);
+		}
 	}
 
 	public void Clear()
@@ -40,10 +49,12 @@ public class PCManager : MonoBehaviour
 
         ExplorerCanvas.DOFade(0f, 0f);
 		ExplorerCanvas.interactable = false;
+		ExplorerCanvas.blocksRaycasts = false;
 		ViewerCanvas.DOFade(0f, 0f);
 		ViewerCanvas.interactable = false;
+		ViewerCanvas.blocksRaycasts = false;
 	}
-
+	
 	public void DisplayViewer(FileData file)
 	{
 		Clear();
@@ -52,6 +63,7 @@ public class PCManager : MonoBehaviour
 
         ViewerCanvas.DOFade(1f, 0f);
 		ViewerCanvas.interactable = true;
+		ViewerCanvas.blocksRaycasts = true;
 		
 		switch (file.Extension)
 		{
@@ -69,26 +81,89 @@ public class PCManager : MonoBehaviour
 				break;
 		}
 	}
+
+	public void CloseViewer()
+	{
+		Viewer.Clear();
+		DisplayExplorer(lastScreen);
+	}
 	
 	public void DisplayExplorer(bool isDrive)
 	{
+		lastScreen = isDrive;
+		
 		Clear();
 		
 		ExplorerCanvas.DOFade(1f, 0f);
 		ExplorerCanvas.interactable = true;
+		ExplorerCanvas.blocksRaycasts = true;
+		
 		
 		if (isDrive)
 		{
 			Explorer.Display(HardDrive.Files);
+
+			Explorer.SizeDisplay.text = FileSizeCalculator.BytesToString(HardDrive.GetUsedSpace()) + "/"
+			                                                                                 +
+			                                                                                 FileSizeCalculator
+				                                                                                 .BytesToString(
+					                                                                                 HardDrive
+						                                                                                 .capacity);
+
 		}
 		else
 		{
-			Explorer.Display(Reader.LoadedDisck.Files);
+			if (Reader.Loaded)
+			{
+				Explorer.Display(Reader.LoadedDisck.Files);
+				
+				Explorer.SizeDisplay.text = FileSizeCalculator.BytesToString(Reader.LoadedDisck.GetUsedSpace()) + "/"
+				                                                                                 +
+				                                                                                 FileSizeCalculator
+					                                                                                 .BytesToString(
+						                                                                                 Reader.LoadedDisck
+							                                                                                 .capacity);
+			}
+			else
+			{
+				// NO FLOPPY IN READER
+			}
 		}
 	}
 
-	public void Transfer(FileData file, bool toDrive)
+	public void Transfer()
 	{
+		var file = Viewer.currentFile;
+
+		if (lastScreen) // check si egal a true soit isDrive
+		{
+			if (!Reader.Loaded)
+			{
+				Debug.Log("No Floppy!");
+				return;
+			}
+			
+			if (Reader.LoadedDisck.AddFile(file))
+			{
+				HardDrive.Files.Remove(file);
+			}
+			else
+			{
+				print("Not enough space!");
+			}
+		}
+		else
+		{
+			if (HardDrive.AddFile(file))
+			{
+				Reader.LoadedDisck.Files.Remove(file);
+			}
+			else
+			{
+				print("Not enough space!");
+			}
+		}
 		
+		DisplayExplorer(lastScreen);
 	}
 }

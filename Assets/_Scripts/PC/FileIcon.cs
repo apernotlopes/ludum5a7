@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class FileIcon : MonoBehaviour, IPointerClickHandler
+public class FileIcon : MonoBehaviour
 {
 	public Image Icon;
 	public TextMeshProUGUI Label;
@@ -15,8 +15,9 @@ public class FileIcon : MonoBehaviour, IPointerClickHandler
 		Label.text = text;
 	}
 
-	public void OnPointerClick(PointerEventData eventData)
+	public void OnClick()
 	{
+//		Debug.Log("Clicked");
 		PCManager.Instance.DisplayViewer(fileData);
 	}
 }
