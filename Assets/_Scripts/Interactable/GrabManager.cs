@@ -52,7 +52,7 @@ public class GrabManager : MonoBehaviour
     
     void Initialize()
     {
-        _camera = Camera.main ?? FindObjectOfType<Camera>();
+        _camera = Camera.main ? Camera.main : FindObjectOfType<Camera>();
         _cursor = new GameObject("_Cursor").GetComponent<Transform>();
         _cursor.position = _camera.ScreenToWorldPoint(Input.mousePosition);
     }

@@ -6,7 +6,7 @@ public class HardDrive : Storage
 {
 	public Letters Letter;
 
-	private void OnEnable()
+	private void Start()
 	{
 		capacity = (int)(Mathf.Pow(2, 20)) * 10;
 

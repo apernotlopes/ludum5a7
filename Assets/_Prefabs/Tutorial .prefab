@@ -67,8 +67,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: aac895c7622ae3145b752e987a68ecbd, type: 2}
+  m_sharedMaterial: {fileID: 21202010398425564, guid: aac895c7622ae3145b752e987a68ecbd,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -172,22 +173,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CountDown: 10
   Tutorials:
-  - Hurry ! You need To save your file in your floppy disck before the virus arrive.
-    Grab a Floppy disck by pressing the left click
-  - Keep the left click pressed to move the floppy disk and use the scroll wheel to
-    rotate it.Put the floppy disck in the floppy disck reader
-  - Go the Harddrive tab
+  - Hurry ! You need to save the most files on these floppy disks before the virus
+    infects this computer. Left click to grab a floppy!
+  - Hold to move the floppy around. You can use the scroll wheel to rotate it. Put
+    the floppy into the drive to read the files!
+  - Check what's on your hard drive!
   - Click on a file to open it.
-  - Click on transfer to put the file on the floppy dick
-  - Try to match the files with the right floppy disk to optimize.
-  - Try to match the files with the right floppy disk to optimize.
-  - The Virus is comming ...
-  - The Virus is comming ...
-  - The Virus is comming ...
-  - The Virus is comming ...
-  - The Virus is comming ...
-  - The Virus is comming ...
+  - Click on Transfer to put the file onto the floppy.
+  - Check the disks labels, you have to make sure you put the files on the right disks!
+  - Careful, space is limited so you might have to do some file management!
+  - ' '
+  - ' '
+  - ' '
+  - ' '
+  - ' '
+  - ' '
   BlueScreen: {fileID: 0}
+  isGameOver: 0
 --- !u!114 &114304656879248292
 MonoBehaviour:
   m_ObjectHideFlags: 1
