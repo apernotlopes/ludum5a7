@@ -8,8 +8,8 @@ public class HardDrive : Storage
 
 	private void OnEnable()
 	{
-		totalSize = 1474560 * 2;
+		capacity = 1474560 * 2;
 
-		Debug.Log("Drive " + Letter + " " + FileSizeCalculator.BytesToString(totalSize));
+		Debug.Log("Drive " + Letter + " " + FileSizeCalculator.BytesToString(capacity));
 	}
 }

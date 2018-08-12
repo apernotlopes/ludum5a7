@@ -18,10 +18,10 @@ public class Floppy : Storage, IInteractable
         floppyData = new FloppyData();
         floppyData.Title = ((FileCategory)index).ToString();
 
-        totalSize = 0;
+        capacity = 0;
 
         foreach (FileData d in FileGenerator.instance.allData[(FileCategory)index])
-            totalSize += d.Size;
+            capacity += d.Size;
     }
 
     void Start()

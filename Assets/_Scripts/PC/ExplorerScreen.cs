@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ExplorerScreen : MonoBehaviour
@@ -7,6 +8,8 @@ public class ExplorerScreen : MonoBehaviour
 	public Transform IconHolder;
 
 	public FileIcon IconPrefab;
+
+	public TextMeshProUGUI SizeDisplay;
 
 	public Sprite[] Icons;
 

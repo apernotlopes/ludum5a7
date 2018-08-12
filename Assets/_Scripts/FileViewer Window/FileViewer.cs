@@ -13,6 +13,8 @@ public class FileViewer : MonoBehaviour
 	public VideoPlayer fapAnchor;
 	public AudioSource lelAnchor;
 	public TextMeshProUGUI txxxtAnchor;
+
+	public FileData currentFile;
 	
 	public Sprite baseIcon;
 	public Sprite lelIcon;
@@ -26,6 +28,8 @@ public class FileViewer : MonoBehaviour
 	{
 		Clear();
 
+		currentFile = jif;
+
 		titleBarText.text = jif.FileName + "." + jif.Extension.ToString("f");
 		
 		jifAnchor.DOFade(1f, 0f);
@@ -35,6 +39,8 @@ public class FileViewer : MonoBehaviour
 	public void Display(FapData fap)
 	{
 		Clear();
+
+		currentFile = fap;
 
 		titleBarText.text = fap.FileName + "." + fap.Extension.ToString("f");
 		
@@ -46,6 +52,8 @@ public class FileViewer : MonoBehaviour
 	public void Display(LelData lel)
 	{
 		Clear();
+
+		currentFile = lel;
 
 		titleBarText.text = lel.FileName + "." + lel.Extension.ToString("f");
 
@@ -59,6 +67,8 @@ public class FileViewer : MonoBehaviour
 	public void Display(TxxxtData txxxt)
 	{
 		Clear();
+
+		currentFile = txxxt;
 		
 		titleBarText.text = txxxt.FileName + "." + txxxt.Extension.ToString("F");
 
@@ -67,6 +77,8 @@ public class FileViewer : MonoBehaviour
 
 	public void Clear()
 	{
+		currentFile = null;
+		
 		jifAnchor.DOFade(0f, 0f);
 		lelAnchor.Stop();
 		fapAnchor.Stop();

@@ -92,18 +92,72 @@ public class PCManager : MonoBehaviour
 		ExplorerCanvas.interactable = true;
 		ExplorerCanvas.blocksRaycasts = true;
 		
+		
 		if (isDrive)
 		{
 			Explorer.Display(HardDrive.Files);
+
+			Explorer.SizeDisplay.text = FileSizeCalculator.BytesToString(HardDrive.GetUsedSpace()) + "/"
+			                                                                                 +
+			                                                                                 FileSizeCalculator
+				                                                                                 .BytesToString(
+					                                                                                 HardDrive
+						                                                                                 .capacity);
+
 		}
 		else
 		{
-			Explorer.Display(Reader.LoadedDisck.Files);
+			if (Reader.Loaded)
+			{
+				Explorer.Display(Reader.LoadedDisck.Files);
+				
+				Explorer.SizeDisplay.text = FileSizeCalculator.BytesToString(Reader.LoadedDisck.GetUsedSpace()) + "/"
+				                                                                                 +
+				                                                                                 FileSizeCalculator
+					                                                                                 .BytesToString(
+						                                                                                 Reader.LoadedDisck
+							                                                                                 .capacity);
+			}
+			else
+			{
+				// NO FLOPPY IN READER
+			}
 		}
 	}
 
-	public void Transfer(FileData file, bool toDrive)
+	public void Transfer()
 	{
+		var file = Viewer.currentFile;
+
+		if (lastScreen) // check si egal a true soit isDrive
+		{
+			if (!Reader.Loaded)
+			{
+				Debug.Log("No Floppy!");
+				return;
+			}
+			
+			if (Reader.LoadedDisck.AddFile(file))
+			{
+				HardDrive.Files.Remove(file);
+			}
+			else
+			{
+				print("Not enough space!");
+			}
+		}
+		else
+		{
+			if (HardDrive.AddFile(file))
+			{
+				Reader.LoadedDisck.Files.Remove(file);
+			}
+			else
+			{
+				print("Not enough space!");
+			}
+		}
 		
+		DisplayExplorer(lastScreen);
 	}
 }

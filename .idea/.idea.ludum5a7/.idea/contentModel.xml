@@ -106,7 +106,7 @@
         </e>
         <e p="Resources" t="Include">
           <e p="TXXXT" t="Include">
-            <e p="clickhere.txt" t="Include" />
+            <e p="C_clickhere.txt" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">
