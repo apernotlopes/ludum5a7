@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224877060609136594}
   - component: {fileID: 222264255896298182}
   - component: {fileID: 114105964438425292}
+  - component: {fileID: 95571946293117732}
   m_Layer: 5
   m_Name: Skull
   m_TagString: Untagged
@@ -63,6 +64,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &95571946293117732
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010718183790402}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: effd560d0c2b6e14281e33840bd4fcb0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114105964438425292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -243,10 +262,10 @@ MonoBehaviour:
   isGameOver: 0
   Alert: {fileID: 8300000, guid: f2812c92807db544f88d23bb4a0efbea, type: 3}
   musiques:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 610f35725d070f14fbe556dfa1039316, type: 3}
+  - {fileID: 8300000, guid: 74bc77d1d04ae22448d786fe8ebc7e49, type: 3}
+  - {fileID: 8300000, guid: 9669d031113854c4a8466f4c81672c0c, type: 3}
+  - {fileID: 8300000, guid: b67f1258d18d814428f87955abf40b11, type: 3}
 --- !u!114 &114304656879248292
 MonoBehaviour:
   m_ObjectHideFlags: 1
