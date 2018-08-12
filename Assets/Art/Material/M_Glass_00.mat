@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: M_Plastic_Light_00
-  m_Shader: {fileID: 4800000, guid: 48e226eac77f7b14aad5d0c6cbc25cf1, type: 3}
+  m_Name: M_Glass_00
+  m_Shader: {fileID: 4800000, guid: fa0449e38ca91134d92abe0259460bc9, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -18,20 +18,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_A96B028:
-        m_Texture: {fileID: 2800000, guid: 4b0de97f20be4b8498f0259fc17a718c, type: 3}
+    - Texture2D_651EE906:
+        m_Texture: {fileID: 2800000, guid: 6506cca52be422545b12e10c4116061e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - Texture2D_CF4302FD:
-        m_Texture: {fileID: 2800000, guid: c8d600e193764a345b17dc61df8b3557, type: 3}
+    - Texture2D_ABD628A5:
+        m_Texture: {fileID: 2800000, guid: db65cb927538e8a489d04c27763297e0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - Texture2D_F745F207:
-        m_Texture: {fileID: 2800000, guid: d43b48a5e93bdaa4f9458ef27ab4ac89, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_F9FF8416:
-        m_Texture: {fileID: 2800000, guid: b4d9545ea1e30d243b9d255861bdbc7d, type: 3}
+    - Texture2D_F2771521:
+        m_Texture: {fileID: 2800000, guid: 22610d29d3a550040bc30e563660240a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -119,6 +115,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_B465EDF0: 0.3
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1

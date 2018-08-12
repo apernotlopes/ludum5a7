@@ -17,8 +17,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Mat_Illum_00
+    second: {fileID: 2100000, guid: 1c978ac1fcb722e46b871f9ee0536d71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Mat_Plastic_Dark_00
-    second: {fileID: 2100000, guid: 8b7a3a1f19063a743afbdc4a1521fe45, type: 2}
+    second: {fileID: 2100000, guid: ad08daf8dcc61f04c8982bf5b0fc7663, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

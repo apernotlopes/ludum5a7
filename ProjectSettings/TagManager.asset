@@ -16,9 +16,9 @@ TagManager:
   - PostProcessing
   - Interactable
   - FloppyReader
-  - 
-  - 
-  - 
+  - Cursor
+  - Post Processing
+  - PcScreen
   - 
   - 
   - 
