@@ -27,25 +27,27 @@ public class PCManager : MonoBehaviour
 	public CanvasGroup ViewerCanvas;
 
     internal bool viewerActive = false;
-	private bool lastScreen;
+    internal bool isHardrive;
 
     private void Awake()
 	{
 		Instance = this;
 	}
 
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.R))
-		{
-			DisplayExplorer(true);
-		}
-	}
+    void Start()
+    {
+        StartCoroutine(LateStart()); 
+    }
+
+    IEnumerator LateStart()
+    {
+        yield return 0;
+        DisplayExplorer(true);
+    }
 
 	public void Clear()
 	{
         viewerActive = false;
-        explorerActive = false;
 
         ExplorerCanvas.DOFade(0f, 0f);
 		ExplorerCanvas.interactable = false;
@@ -85,12 +87,12 @@ public class PCManager : MonoBehaviour
 	public void CloseViewer()
 	{
 		Viewer.Clear();
-		DisplayExplorer(lastScreen);
+		DisplayExplorer(isHardrive);
 	}
 	
 	public void DisplayExplorer(bool isDrive)
 	{
-		lastScreen = isDrive;
+		isHardrive = isDrive;
 		
 		Clear();
 		
@@ -135,7 +137,7 @@ public class PCManager : MonoBehaviour
 	{
 		var file = Viewer.currentFile;
 
-		if (lastScreen) // check si egal a true soit isDrive
+		if (isHardrive) // check si egal a true soit isDrive
 		{
 			if (!Reader.Loaded)
 			{
@@ -164,6 +166,6 @@ public class PCManager : MonoBehaviour
 			}
 		}
 		
-		DisplayExplorer(lastScreen);
+		DisplayExplorer(isHardrive);
 	}
 }
