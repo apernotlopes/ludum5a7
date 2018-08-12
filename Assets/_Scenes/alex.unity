@@ -376,7 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   clearColorMode: 1
-  backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
+  backgroundColorHDR: {r: 0.0014859968, g: 0.0014859968, b: 0.00445799, a: 0}
   clearDepth: 1
   renderingPath: 0
   volumeLayerMask:
@@ -1129,6 +1129,21 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 225583693411753214, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224552448114084860, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.8295
+      objectReference: {fileID: 0}
+    - target: {fileID: 224552448114084860, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 2.1393
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be04e6ad18fe48e4baabdd0d6d24eac5, type: 2}
   m_IsPrefabAsset: 0
@@ -1574,6 +1589,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: b7b995e7789bd5341b2c0879f28eecd2, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 07e970e7b1e58864592da2723fcc57d7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7b995e7789bd5341b2c0879f28eecd2, type: 3}
   m_IsPrefabAsset: 0

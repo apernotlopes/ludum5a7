@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using DG.Tweening;
 using UnityEngine;
 
@@ -206,6 +207,10 @@ public class PCManager : MonoBehaviour
 
 	public void Transfer()
 	{
+		Viewer.fapAnchor.Stop();
+		Viewer.fapAnchor.transform.GetChild(0).gameObject.SetActive(false);
+		Viewer.lelAnchor.Stop();
+		
 		if (Reader.Loaded)
 		{
 			Debug.Log("transferring...");
@@ -217,9 +222,7 @@ public class PCManager : MonoBehaviour
 			sizeToTransfer = Viewer.currentFile.Size;
 			isTransferring = true;
 			
-			Viewer.fapAnchor.Stop();
-			Viewer.fapAnchor.transform.GetChild(0).gameObject.SetActive(false);
-			Viewer.lelAnchor.Stop();
+			
 		}
 		else
 		{
@@ -234,7 +237,7 @@ public class PCManager : MonoBehaviour
 
 		CloseLoading();
 	}
-	
+
 	private void Update()
 	{
 		if (isTransferring)
@@ -249,8 +252,8 @@ public class PCManager : MonoBehaviour
 				if (sizeToTransfer <= 0)
 				{
 					isTransferring = false;
-					// Transfer success
 					sizeToTransfer = 0;
+					
 					TransferForReal();
 				}
 			}

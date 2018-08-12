@@ -17,7 +17,6 @@ public class FileIcon : MonoBehaviour
 
 	public void OnClick()
 	{
-//		Debug.Log("Clicked");
 		PCManager.Instance.DisplayViewer(fileData);
 	}
 }
