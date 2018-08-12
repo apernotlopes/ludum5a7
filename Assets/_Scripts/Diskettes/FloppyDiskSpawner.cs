@@ -10,14 +10,8 @@ public class FloppyDiskSpawner : MonoBehaviour
 
     int numberOfFloppy;
     int numberOfFile;
-    
 
-	void Start () 
-	{
-        SpawnFloppyDisks();
-    }
-
-    void SpawnFloppyDisks () 
+    public void SpawnFloppyDisks () 
 	{
         FileGenerator fileGen = FileGenerator.instance;
 

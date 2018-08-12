@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExplorerScreen : MonoBehaviour
 {
@@ -12,11 +13,12 @@ public class ExplorerScreen : MonoBehaviour
 
 	public TextMeshProUGUI SizeDisplay;
 
+	public Image BGIcon;
+	public Sprite[] folders;
+
 	public TextMeshProUGUI FloppyTab;
 
 	public Sprite[] Icons;
-
-	public JifData debugJif;
 
 	public Sprite GetIcon(FileExtensions ext)
 	{
@@ -53,6 +55,8 @@ public class ExplorerScreen : MonoBehaviour
 	public void Display(List<FileData> files)
 	{
 		Clear();
+
+		BGIcon.sprite = PCManager.Instance.isHardDrive ? folders[0] : folders[1];
 		
 		for (int i = 0; i < files.Count; i++)
 		{

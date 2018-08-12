@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Storage : MonoBehaviour
 {
@@ -36,5 +37,10 @@ public class Storage : MonoBehaviour
 		Files.ForEach(f => sum += f.Size);
 
 		return sum;
+	}
+
+	public void DeleteRandFile()
+	{
+		Files.Remove(Files[Random.Range(0, Files.Count)]);
 	}
 }

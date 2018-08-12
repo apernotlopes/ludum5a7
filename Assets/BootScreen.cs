@@ -45,5 +45,7 @@ public class BootScreen : MonoBehaviour
 
 		isBooted = true;
 		FindObjectOfType<GoalManager>().StartTuto();
+		FindObjectOfType<FloppyDiskSpawner>().SpawnFloppyDisks();
+
 	}
 }

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: ad5d6c04a4d3b00498c098ba05bbc988
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Didno
+  fontNames:
+  - Didno
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a0d7837b9856eaa40925a25ea3282631, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

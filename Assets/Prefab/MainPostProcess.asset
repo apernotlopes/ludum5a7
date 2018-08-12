@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 114900568211915018}
-  - {fileID: 114551880666150736}
+  - {fileID: 114607454882307392}
 --- !u!114 &114062737681079198
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -38,7 +38,7 @@ MonoBehaviour:
   _scanline:
     overrideState: 1
     value: 0.13
---- !u!114 &114551880666150736
+--- !u!114 &114607454882307392
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,13 +55,13 @@ MonoBehaviour:
     value: 1
   _bleeding:
     overrideState: 1
-    value: 0
+    value: 0.0051
   _fringing:
     overrideState: 1
-    value: 0.00027
+    value: 0.00036
   _scanline:
     overrideState: 1
-    value: 0.133
+    value: 0.148
 --- !u!114 &114900568211915018
 MonoBehaviour:
   m_ObjectHideFlags: 3
