@@ -41,13 +41,13 @@ public class BootScreen : MonoBehaviour
 		}
 		yield return new WaitForSeconds(0.5f);
 		
-		this.gameObject.SetActive(false);
 
 		isBooted = true;
 		FindObjectOfType<GoalManager>().StartTuto();
 		FindObjectOfType<FloppyDiskSpawner>().SpawnFloppyDisks();
 		
 		StartCoroutine(PCManager.Instance.LateStart()); 
+		this.gameObject.SetActive(false);
 
 	}
 }

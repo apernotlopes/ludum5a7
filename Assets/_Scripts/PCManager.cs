@@ -22,7 +22,7 @@ public class PCManager : MonoBehaviour
 	public float sizeToTransfer;
 	public bool isTransferring, isLoading;
 
-	public HardDrive HardDrive;
+	public HardDrive hardDrive;
 	private int initialCapacity;
 
 	public ExplorerScreen Explorer;
@@ -50,7 +50,7 @@ public class PCManager : MonoBehaviour
     {
         yield return 0;
         DisplayExplorer(true);
-	    initialCapacity = HardDrive.capacity;
+	    initialCapacity = hardDrive.capacity;
     }
 
 	public void Clear()
@@ -126,21 +126,21 @@ public class PCManager : MonoBehaviour
 	public void VirusPropagation()
 	{
 		// Check if used space > capacity
+		Debug.Log("virusvirus");
 
-		HardDrive.capacity -= (int)(initialCapacity * 0.05f);
+		hardDrive.capacity -= (int)(initialCapacity * 0.05f);
 
-		if (HardDrive.GetUsedSpace() >= HardDrive.capacity)
+		if (hardDrive.GetUsedSpace() >= hardDrive.capacity)
 		{
 			var icon = Explorer.IconHolder.GetChild(0)?.GetComponent<FileIcon>();
 			if (icon != null)
 			{
-				HardDrive.Files.Remove(icon.fileData);
+				hardDrive.Files.Remove(icon.fileData);
 				Destroy(Explorer.IconHolder.GetChild(0).GetComponent<FileIcon>());
-				// Add sound ?
 			}
 		}
-
-		DisplayExplorer(isHardDrive);
+		
+		RefreshSizeDisplay(isHardDrive);
 	}
 
 	public void CloseViewer()
@@ -179,8 +179,32 @@ public class PCManager : MonoBehaviour
 		isLoading = true;
 		
 		ExplorerCanvas.DOFade(1f, 0f);
-
+		RefreshSizeDisplay(isDrive);
+		
 		StartCoroutine(DelayExplorer(isDrive));
+	}
+
+	private void RefreshSizeDisplay(bool isDrive)
+	{
+		if (isDrive)
+		{
+			Explorer.SizeDisplay.text = FileSizeCalculator.BytesToString(hardDrive.GetUsedSpace()) + "/"
+																								   +
+																								   FileSizeCalculator
+																									   .BytesToString(
+																										   hardDrive
+																											   .capacity);
+		}
+		else if(Reader.Loaded)
+		{
+			Explorer.SizeDisplay.text = FileSizeCalculator.BytesToString(Reader.LoadedDisck.GetUsedSpace()) + "/"
+			                                                                                                +
+			                                                                                                FileSizeCalculator
+				                                                                                                .BytesToString(
+					                                                                                                Reader.LoadedDisck
+						                                                                                                .capacity);
+		}
+
 	}
 
 	private IEnumerator DelayExplorer(bool isDrive)
@@ -191,14 +215,7 @@ public class PCManager : MonoBehaviour
 		
 		if (isDrive)
 		{
-			Explorer.Display(HardDrive.Files);
-
-			Explorer.SizeDisplay.text = FileSizeCalculator.BytesToString(HardDrive.GetUsedSpace()) + "/"
-			                                                                                       +
-			                                                                                       FileSizeCalculator
-				                                                                                       .BytesToString(
-					                                                                                       HardDrive
-						                                                                                       .capacity);
+			Explorer.Display(hardDrive.Files);
 
 		}
 		else
@@ -206,13 +223,6 @@ public class PCManager : MonoBehaviour
 			if (Reader.Loaded)
 			{
 				Explorer.Display(Reader.LoadedDisck.Files);
-				
-				Explorer.SizeDisplay.text = FileSizeCalculator.BytesToString(Reader.LoadedDisck.GetUsedSpace()) + "/"
-				                                                                                                +
-				                                                                                                FileSizeCalculator
-					                                                                                                .BytesToString(
-						                                                                                                Reader.LoadedDisck
-							                                                                                                .capacity);
 			}
 			else
 			{
@@ -243,7 +253,7 @@ public class PCManager : MonoBehaviour
 			
 			if (Reader.LoadedDisck.AddFile(file))
 			{
-				HardDrive.Files.Remove(file);
+				hardDrive.Files.Remove(file);
 				transferSuccess = true;
 			}
 			else
@@ -254,7 +264,7 @@ public class PCManager : MonoBehaviour
 		}
 		else
 		{
-			if (HardDrive.AddFile(file))
+			if (hardDrive.AddFile(file))
 			{
 				Reader.LoadedDisck.Files.Remove(file);
 				transferSuccess = true;
