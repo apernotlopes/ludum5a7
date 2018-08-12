@@ -4,11 +4,19 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Glass
     400000: //RootNode
+    400002: Glass
     2100000: lambert1
+    2100002: Mat_Plastic_Rough_Dark_00
+    2100004: Mat_Plastic_Light_00
+    2100006: Mat_Glass_00
     2300000: //RootNode
+    2300002: Glass
     3300000: //RootNode
+    3300002: Glass
     4300000: Screen
+    4300002: Glass
   externalObjects: {}
   materials:
     importMaterials: 1
