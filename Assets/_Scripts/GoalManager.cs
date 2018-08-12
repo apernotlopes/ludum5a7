@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class GoalManager : MonoBehaviour 
 {
     public float CountDown = 180.0f;
     public string[] Tutorials;
     public GameObject BlueScreen;
+
+    public bool isGameOver;
 
     TextMeshProUGUI text;
 
@@ -46,7 +49,7 @@ public class GoalManager : MonoBehaviour
                     return PCManager.Instance.isTransferring;
 
                 case 5:
-                    return PCManager.Instance.viewerActive;
+                    return !PCManager.Instance.isTransferring;
 
                 case 6:
                     return !PCManager.Instance.viewerActive;
@@ -90,10 +93,26 @@ public class GoalManager : MonoBehaviour
     {
         text.DOText(Tutorials[index], 2.0f);
     }
-	
-	void Update () 
+
+    private bool isVirusStarted;
+    private float t;
+    
+	void Update ()
 	{
-        if (Trigger)
+	    if (isGameOver) return;
+
+	    if (isVirusStarted)
+	    {
+	        t += Time.deltaTime;
+
+	        if (t > 1f)
+	        {
+	            PCManager.Instance.VirusPropagation();
+	            t = 0;
+	        }
+	    }
+	    
+	    if (Trigger)
         {
             index++;
 
@@ -107,16 +126,40 @@ public class GoalManager : MonoBehaviour
         {
             if(CountDown < 0)
             {
-                BlueScreen.SetActive(true);
-                text.text = "Your Score : \n" + score + "\n Floppy Fulled Bonus : \n" +
-                            _perfectFloppy + " X " + "1000000 \n Total : \n" + (score + _perfectFloppy * 1000000);
+                if (!isGameOver)
+                {
+                    GameOver();
+                }
             }
             else
             {
                 CountDown -= Time.deltaTime;
+                if (!isVirusStarted)
+                {
+                    isVirusStarted = true;
+                    PCManager.Instance.DisplayMessage("Your Computer is infected !", true);
+                }
                 text.text = "Your Computer is infected ! \n Time before shutdown \n" + (int)CountDown;
             }
         }
+    }
+
+    private void GameOver()
+    {
+        isGameOver = true;
+        
+        BlueScreen.SetActive(true);
+        text.text = "Your Score : \n" + score + "\n Complete Collections Bonus : \n" +
+                    _perfectFloppy + " X " + "1000000 \n Total : \n" + (score + _perfectFloppy * 1000000);
+
+        StartCoroutine(Restart());
+    }
+
+    private IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(5f);
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     int GetScore()

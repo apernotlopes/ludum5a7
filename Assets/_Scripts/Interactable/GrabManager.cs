@@ -21,10 +21,13 @@ public class GrabManager : MonoBehaviour
     }
 
     public LayerMask iteractableMask;
+    public LayerMask cursorMask;
     public IInteractable currentInteractable;
 
     public float torqueSpeed = 2.0f;
     public float cursorDistance = 4.0f;
+
+    public Texture2D[] cursorsImage;
 
     public bool isInteracting
     {
@@ -34,6 +37,7 @@ public class GrabManager : MonoBehaviour
         }
     }
 
+    bool onScreen;
     Transform _cursor;
     Camera _camera;
 
@@ -45,6 +49,8 @@ public class GrabManager : MonoBehaviour
             return;
         }
 
+        Cursor.SetCursor(cursorsImage[0], Vector3.zero, CursorMode.ForceSoftware);
+
         _instance = this;
         _instance.Initialize();
         DontDestroyOnLoad(_instance.gameObject);
@@ -52,13 +58,16 @@ public class GrabManager : MonoBehaviour
     
     void Initialize()
     {
-        _camera = Camera.main ?? FindObjectOfType<Camera>();
+        _camera = Camera.main ? Camera.main : FindObjectOfType<Camera>();
         _cursor = new GameObject("_Cursor").GetComponent<Transform>();
         _cursor.position = _camera.ScreenToWorldPoint(Input.mousePosition);
     }
 
     void Update()
     {
+
+        ManageCusor();
+
         if (isInteracting) return;
 
         RaycastHit _hit;
@@ -70,9 +79,32 @@ public class GrabManager : MonoBehaviour
             if (_interactable != null && Input.GetMouseButtonDown(0))
             {
                 currentInteractable = _interactable;
-                currentInteractable.BeginInteraction(_cursor);
+                currentInteractable.BeginInteraction(_cursor); 
             }
         }
+    }
+
+    void ManageCusor()
+    {
+        int index;
+        RaycastHit _hit;
+        onScreen = DoRaycast(out _hit, cursorMask);
+
+        if (isInteracting || !onScreen)
+        {
+            index = !isInteracting ? 0 : 1;
+        }
+        else
+        {
+            if (PCManager.Instance.isTransferring)
+                index = 4;
+            else
+                index = !Input.GetMouseButton(0) ? 2 : 3;
+        }
+            
+
+
+        Cursor.SetCursor(cursorsImage[index], Vector3.zero, CursorMode.ForceSoftware);
     }
 
     void FixedUpdate()

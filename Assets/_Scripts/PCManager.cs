@@ -23,6 +23,7 @@ public class PCManager : MonoBehaviour
 	public bool isTransferring;
 
 	public HardDrive HardDrive;
+	private int initialCapacity;
 
 	public ExplorerScreen Explorer;
 	public FileViewer Viewer;
@@ -53,6 +54,7 @@ public class PCManager : MonoBehaviour
     {
         yield return 0;
         DisplayExplorer(true);
+	    initialCapacity = HardDrive.capacity;
     }
 
 	public void Clear()
@@ -108,6 +110,26 @@ public class PCManager : MonoBehaviour
 		}
 	}
 
+	public void VirusPropagation()
+	{
+		// Check if used space > capacity
+
+		HardDrive.capacity -= (int)(initialCapacity * 0.05f);
+
+		if (HardDrive.GetUsedSpace() >= HardDrive.capacity)
+		{
+			var icon = Explorer.IconHolder.GetChild(0)?.GetComponent<FileIcon>();
+			if (icon != null)
+			{
+				HardDrive.Files.Remove(icon.fileData);
+				Destroy(Explorer.IconHolder.GetChild(0).GetComponent<FileIcon>());
+				// Add sound ?
+			}
+		}
+
+		DisplayExplorer(isHardDrive);
+	}
+
 	public void CloseViewer()
 	{
 		viewerActive = false;
@@ -127,6 +149,11 @@ public class PCManager : MonoBehaviour
 
 	public void CloseMessage()
 	{
+		if (isTransferring)
+		{
+			CancelTransfer();
+		}
+		
 		DisplayExplorer(true);
 	}
 	
@@ -231,7 +258,6 @@ public class PCManager : MonoBehaviour
 		if (Reader.Loaded)
 		{
 			Debug.Log("transferring...");
-			Cursor.SetCursor(hourglass, Vector2.zero, CursorMode.Auto);
 			
 			LoadingCanvas.DOFade(1f, 0f);
 			LoadingCanvas.blocksRaycasts = true;
@@ -257,7 +283,6 @@ public class PCManager : MonoBehaviour
 	{
 		sizeToTransfer = 0;
 		isTransferring = false;
-		Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 	}
 
 	private void Update()
