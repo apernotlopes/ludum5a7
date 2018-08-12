@@ -12,19 +12,27 @@ public class ExplorerScreen : MonoBehaviour
 
 	public JifData debugJif;
 
-	private void Start()
-	{
-		DisplayIcon(debugJif);
-	}
-
 	public Sprite GetIcon(FileExtensions ext)
 	{
 		return Icons[(int) ext];
 	}
-	
-	public void DisplayIcon(FileData fileData)
+
+	private void DisplayIcon(FileData fileData)
 	{
 		FileIcon icon = Instantiate(IconPrefab, IconHolder);
 		icon.Setup(GetIcon(fileData.Extension), fileData.FileName);
+	}
+
+	public void Display(List<FileData> files)
+	{
+		for (int i = 0; i < files.Count; i++)
+		{
+			DisplayIcon(files[i]);
+		}
+	}
+
+	public void Clear()
+	{
+		
 	}
 }
