@@ -31,11 +31,6 @@ public class PCManager : MonoBehaviour
 		Instance = this;
 	}
 
-	private void Start()
-	{
-		DisplayExplorer(true);
-	}
-
 	public void Clear()
 	{
 		ExplorerCanvas.DOFade(0f, 0f);

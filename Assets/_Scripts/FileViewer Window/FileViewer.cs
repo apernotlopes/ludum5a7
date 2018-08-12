@@ -24,11 +24,11 @@ public class FileViewer : MonoBehaviour
 	public LelData debugLel;
 
 	public TxxxtData debugTxxxt;
-
-	private void Start()
-	{
-		Display(debugTxxxt);
-	}
+//
+//	private void Start()
+//	{
+//		Display(debugTxxxt);
+//	}
 
 	public void Display(JifData jif)
 	{

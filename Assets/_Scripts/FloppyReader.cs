@@ -41,6 +41,8 @@ public class FloppyReader : MonoBehaviour
     void LoadData()
     {
         Loaded = true;
+        
+        PCManager.Instance.DisplayExplorer(false);
     }
 
     public void UnloadFloppy()
