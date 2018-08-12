@@ -6,24 +6,32 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Video;
 using Random = System.Random;
+using Object = UnityEngine.Object;
 
 public class FileGenerator : MonoBehaviour
 {
-    public static FileGenerator Temple;
+    public static FileGenerator instance;
     
     public Sprite[] Jifs;
     public AudioClip[] Lels;
     public VideoClip[] Faps;
     public TextAsset[] Txxxts;
 
+    public Dictionary<FileCategory, FileData[]> allData = new Dictionary<FileCategory, FileData[]>();
+    public string[] categories = new string[] { "SOD", "C", "A", "SW", "P", "B", "O", "F" };
+
+    public int Lenght = 0;
+    public List<FileData> dataToSpawn = new List<FileData>();
+
     private void Awake()
     {
-        Temple = this;
+        instance = this;
+        LoadAll();
     }
 
     private void Start()
     {
-        LoadAll();
+        
     }
 
     public void LoadAll()
@@ -32,58 +40,86 @@ public class FileGenerator : MonoBehaviour
         Lels =  Resources.LoadAll("LEL", typeof(AudioClip)).Cast<AudioClip>().ToArray();
         Faps =  Resources.LoadAll("FAP", typeof(VideoClip)).Cast<VideoClip>().ToArray();
         Txxxts =  Resources.LoadAll("TXXXT", typeof(TextAsset)).Cast<TextAsset>().ToArray();
+
+        Lenght = Jifs.Length + Lels.Length + Faps.Length + Txxxts.Length;
+
+        for (int i = 0; i < categories.Length; i++)
+        {
+            List<FileData> data = GetFilesFromCategorie(categories[i]);
+            allData.Add((FileCategory)i, data.ToArray());
+            dataToSpawn.AddRange(data);
+        }
     }
 
-    public FileData GetRandFile()
+    List<FileData> GetFilesFromCategorie(string categorie)
     {
-        var v = UnityEngine.Random.value;
+        List<FileData> files = new List<FileData>();
 
-        if (v < 1 && v >= 0.6f)
+        for (int i = 0; i < Jifs.Length; i++)
         {
-            return GetRandFile<JifData>();
-        }
-        if (v < 0.6f && v >= 0.35f)
-        {
-            return GetRandFile<TxxxtData>();
-        }
-        if(v < 0.35f && v >= 0.15f)
-        {
-            return GetRandFile<FapData>();
-        }
-        if(v < 0.15f)
-        {
-            return GetRandFile<LelData>();
+            string name = Jifs[i].name;
+            if (name.StartsWith(categorie))
+            {
+                files.Add(GetFile<JifData>(name, i));
+            }
         }
 
-        return GetRandFile<TxxxtData>();
+        for (int i = 0; i < Lels.Length; i++)
+        {
+            string name = Lels[i].name;
+            if (name.StartsWith(categorie))
+            {
+                files.Add(GetFile<LelData>(name, i));
+            }
+        }
+
+        for (int i = 0; i < Faps.Length; i++)
+        {
+            string name = Faps[i].name;
+            if (name.StartsWith(categorie))
+            {
+                files.Add(GetFile<FapData>(name, i));
+            }
+        }
+
+        for (int i = 0; i < Txxxts.Length; i++)
+        {
+            string name = Txxxts[i].name;
+            if (name.StartsWith(categorie))
+            {
+                files.Add(GetFile<TxxxtData>(name, i));
+            }
+        }
+
+        return files;
     }
 
-    private FileData GetRandFile<T>() where T : FileData
+    FileData GetFile<T>(string name, int index) where T : FileData
     {
-        var n = GetRandName();
+        var n = name;
         var fileData = new FileData(n, FindCategory(n));
         
         if (typeof(T) == typeof(JifData))
         {
-            var file = Jifs[UnityEngine.Random.Range(0, Jifs.Length)];
+            var file = Jifs[index];
             
             fileData = new JifData(n, FindCategory(n), file);
         }
         if (typeof(T) == typeof(LelData))
         {
-            var file = Lels[UnityEngine.Random.Range(0, Lels.Length)];
+            var file = Lels[index];
             
             fileData = new LelData(n, FindCategory(n), file);
         }
         if (typeof(T) == typeof(FapData))
         {
-            var file = Faps[UnityEngine.Random.Range(0, Faps.Length)];
+            var file = Faps[index];
             
             fileData = new FapData(n, FindCategory(n), file);
         }
         if (typeof(T) == typeof(TxxxtData))
         {
-            var file = Txxxts[UnityEngine.Random.Range(0, Txxxts.Length)];
+            var file = Txxxts[index];
             
             fileData = new TxxxtData(n, FindCategory(n), file.text);
         }
@@ -93,8 +129,6 @@ public class FileGenerator : MonoBehaviour
 
     private FileCategory FindCategory(string fileName)
     {
-        var categories = new string[] {"SOD", "C", "A", "SW", "P", "B", "O", "F"};
-
         for (int i = 0; i < categories.Length; i++)
         {
             if (fileName.StartsWith(categories[i]))
@@ -108,11 +142,12 @@ public class FileGenerator : MonoBehaviour
     
     private string GetRandName()
     {
-        var color = new string[]{"blue", "yellow", "red", "green"};
+        //var color = new string[]{"blue", "yellow", "red", "green"};
 
-        var animal = new string[] {"panther", "turtle", "bird", "giraffe"};
+        //var animal = new string[] {"panther", "turtle", "bird", "giraffe"};
 
-        return color + "_" + animal;
+        //return color + "_" + animal;
+        return "Random";
     }
 
 }

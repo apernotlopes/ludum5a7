@@ -17,7 +17,7 @@ public class Storage : MonoBehaviour
 	
 	public bool AddFile(FileData data)
 	{
-		if (data.Size < totalSize)
+		if (data.Size <= (totalSize - GetUsedSpace()))
 		{
             Files.Add(data);
             return true;
