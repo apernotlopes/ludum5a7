@@ -97,7 +97,7 @@ public class GrabManager : MonoBehaviour
         }
         else
         {
-            if (PCManager.Instance.isTransferring)
+            if (PCManager.Instance.isTransferring || PCManager.Instance.isLoading)
                 index = 4;
             else
             {

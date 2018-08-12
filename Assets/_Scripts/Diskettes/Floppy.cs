@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Floppy : Storage, IInteractable
 {
     public Rigidbody Rigidbody { get; set; }
     public Transform Cursor { get; set; }
+    public TextMeshProUGUI Label;
 
     public FloppyData floppyData;
     public float speed = 200.0f;
@@ -14,7 +16,7 @@ public class Floppy : Storage, IInteractable
     public AudioClip FloppyIn;
 
     internal FloppyReader reader;
-
+    
     public void SetFloppy(int index)
     {
         floppyData = new FloppyData();
@@ -44,6 +46,7 @@ public class Floppy : Storage, IInteractable
             mats[0].SetColor("Color_87CF86FE", new Color(Random.value, 0.0f, 1.0f));
 
         rend.materials = mats;
+        Label.text = floppyData.Title;
     }
 
     void Start()

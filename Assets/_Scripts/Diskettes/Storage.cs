@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Storage : MonoBehaviour
 {
-	public List<FileData> Files;
+	public List<FileData> Files = new List<FileData>();
 
 	public int capacity;
 

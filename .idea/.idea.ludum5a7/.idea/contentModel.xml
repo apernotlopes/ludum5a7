@@ -34,6 +34,7 @@
             <e p="FileViewer.cs" t="Include" />
           </e>
           <e p="FloppyReader.cs" t="Include" />
+          <e p="GameRender.cs" t="Include" />
           <e p="GoalManager.cs" t="Include" />
           <e p="Interactable" t="Include">
             <e p="GrabManager.cs" t="Include" />
@@ -109,7 +110,12 @@
         </e>
         <e p="Resources" t="Include">
           <e p="TXXXT" t="Include">
+            <e p="A_newtext1.txt" t="Include" />
+            <e p="B_happymeal.txt" t="Include" />
             <e p="C_clickhere.txt" t="Include" />
+            <e p="M_meta.txt" t="Include" />
+            <e p="SOD_tracklist.txt" t="Include" />
+            <e p="SW_superior.txt" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro Assets" t="Include">
