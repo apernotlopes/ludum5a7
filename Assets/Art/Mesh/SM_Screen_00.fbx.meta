@@ -11,6 +11,7 @@ ModelImporter:
     2100002: Mat_Plastic_Rough_Dark_00
     2100004: Mat_Plastic_Light_00
     2100006: Mat_Glass_00
+    2100008: Mat_Illum_00
     2300000: //RootNode
     2300002: Glass
     3300000: //RootNode
@@ -21,13 +22,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Mat_Glass_00
+    second: {fileID: 2100000, guid: 0d33372e333ff904b879d3e99a0d70b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Illum_00
+    second: {fileID: 2100000, guid: 1c978ac1fcb722e46b871f9ee0536d71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Mat_Plastic_Light_00
-    second: {fileID: 2100000, guid: c6028af2519470a43bcfc2cee3390c02, type: 2}
+    second: {fileID: 2100000, guid: a3d95735635afdf45b76a80dc9b961c0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mat_Plastic_Rough_Dark_00
-    second: {fileID: 2100000, guid: 4e596b01eec653d43a24e7f91e6fe73b, type: 2}
+    second: {fileID: 2100000, guid: 1a9cb3e3d4debef419ca3e62cfebbb14, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
