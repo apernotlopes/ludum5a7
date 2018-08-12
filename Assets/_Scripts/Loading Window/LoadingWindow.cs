@@ -58,7 +58,6 @@ public class LoadingWindow : MonoBehaviour {
 		while (isTransferring == true) {
 			transferTween = transferFileRect.DOAnchorPosX(toRect.anchoredPosition.x, fileTransferDuration).SetEase(Ease.InOutCubic);
 			transferFileRect.DOPunchRotation(vPunch, fileTransferDuration);
-			transferFileRect.DOPunchScale(Vector3.one * 1.1f, fileTransferDuration, 0, 0f);
 			yield return transferTween.WaitForCompletion();
 			yield return new WaitForSeconds(1f);
 			transferFileRect.DOAnchorPosX(fromRect.anchoredPosition.x, 0f);
