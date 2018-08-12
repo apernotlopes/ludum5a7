@@ -267,6 +267,8 @@ public class PCManager : MonoBehaviour
 			{
 				Reader.LoadedDisck.Files.Remove(file);
 				transferSuccess = true;
+				Reader.DEL.Blink(3);
+
 			}
 			else
 			{

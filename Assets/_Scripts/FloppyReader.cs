@@ -18,6 +18,8 @@ public class FloppyReader : MonoBehaviour
     Transform floppyAnchor;
     Sequence LoadingSequence;
 
+    public DELMat DEL;
+
     void Start()
     {
         floppyAnchor = transform.Find("FloppyAnchor");
@@ -28,8 +30,11 @@ public class FloppyReader : MonoBehaviour
         if (currentDisk != null) return;
 
         currentDisk = Disk;
+        DEL.Blink();
         currentDisk.Rigidbody.isKinematic = true;
+        DEL.Blink();
         currentDisk.reader = this;
+        DEL.Blink();
         PCManager.Instance.isLoading = true;
         LoadingSequence = DOTween.Sequence();
         LoadingSequence.Append(Disk.transform.DORotate(floppyAnchor.rotation.eulerAngles, 0.5f));
@@ -42,6 +47,7 @@ public class FloppyReader : MonoBehaviour
     {
         Loaded = true;
         PCManager.Instance.isLoading = false;
+        DEL.Blink(2);
         
         PCManager.Instance.DisplayExplorer(false);
 
@@ -53,6 +59,9 @@ public class FloppyReader : MonoBehaviour
         LoadingSequence.Kill();
         Loaded = false;
         currentDisk = null;
+        
+        DEL.Blink(2);
+
         
         PCManager.Instance.Viewer.Clear();
         PCManager.Instance.DisplayExplorer(true);
