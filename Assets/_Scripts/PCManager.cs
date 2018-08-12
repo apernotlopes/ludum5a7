@@ -128,7 +128,7 @@ public class PCManager : MonoBehaviour
 		// Check if used space > capacity
 		Debug.Log("virusvirus");
 
-		HardDrive.capacity -= (int)(initialCapacity * 0.005f);
+		hardDrive.capacity -= (int)(initialCapacity * 0.005f);
 
 		if (hardDrive.GetUsedSpace() >= hardDrive.capacity)
 		{
