@@ -115,7 +115,7 @@ public class PCManager : MonoBehaviour
 	{
 		// Check if used space > capacity
 
-		HardDrive.capacity -= (int)(initialCapacity * 0.05f);
+		HardDrive.capacity -= (int)(initialCapacity * 0.005f);
 
 		if (HardDrive.GetUsedSpace() >= HardDrive.capacity)
 		{

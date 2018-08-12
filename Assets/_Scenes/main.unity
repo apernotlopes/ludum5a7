@@ -220,6 +220,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: musiques.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 224130186783021976, guid: 1322bb2f136c1d9449e3ddbe792fa555,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -263,7 +268,7 @@ Prefab:
     - target: {fileID: 224130186783021976, guid: 1322bb2f136c1d9449e3ddbe792fa555,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 1.172
+      value: 1.674
       objectReference: {fileID: 0}
     - target: {fileID: 224130186783021976, guid: 1322bb2f136c1d9449e3ddbe792fa555,
         type: 2}
@@ -325,6 +330,82 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224877060609136594, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224877060609136594, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224877060609136594, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114105964438425292, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6ab20f7c1f6815446a059429da8c5886,
+        type: 3}
+    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: musiques.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 610f35725d070f14fbe556dfa1039316, type: 3}
+    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: musiques.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 74bc77d1d04ae22448d786fe8ebc7e49, type: 3}
+    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: musiques.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9669d031113854c4a8466f4c81672c0c, type: 3}
+    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: musiques.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: b67f1258d18d814428f87955abf40b11, type: 3}
+    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: CountDown
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1322bb2f136c1d9449e3ddbe792fa555, type: 2}
   m_IsPrefabAsset: 0
@@ -363,6 +444,7 @@ MonoBehaviour:
     m_Bits: 2048
   torqueSpeed: 2
   cursorDistance: 4
+  ClickSound: {fileID: 0}
   cursorsImage:
   - {fileID: 2800000, guid: cb3257a27f8a9f541947f76d3968dbb8, type: 3}
   - {fileID: 2800000, guid: bb95571313a5d6d469c2d2b094f64cfe, type: 3}
@@ -1701,6 +1783,29 @@ MonoBehaviour:
   colorActive: {r: 0, g: 1, b: 0, a: 0.5}
   drawInactive: 1
   colorInactive: {r: 1, g: 0, b: 0, a: 0.5}
+--- !u!1 &1432625206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1010718183790402, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+    type: 2}
+  m_PrefabInternal: {fileID: 209972121}
+--- !u!95 &1432625210
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1432625206}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: effd560d0c2b6e14281e33840bd4fcb0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1437638830 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1370162045522428, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
