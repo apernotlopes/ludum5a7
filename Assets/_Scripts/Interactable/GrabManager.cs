@@ -41,6 +41,14 @@ public class GrabManager : MonoBehaviour
     bool onScreen;
     Transform _cursor;
     Camera _camera;
+    Camera mainCamera
+    {
+        get
+        {
+            _camera = _camera == null ? (Camera.main ? Camera.main : FindObjectOfType<Camera>()) : _camera;
+            return _camera;
+        }
+    }
 
     void Awake()
     {
@@ -59,9 +67,8 @@ public class GrabManager : MonoBehaviour
     
     void Initialize()
     {
-        _camera = Camera.main ? Camera.main : FindObjectOfType<Camera>();
         _cursor = new GameObject("_Cursor").GetComponent<Transform>();
-        _cursor.position = _camera.ScreenToWorldPoint(Input.mousePosition);
+        _cursor.position = mainCamera.ScreenToWorldPoint(Input.mousePosition);
     }
 
     void Update()
@@ -118,7 +125,7 @@ public class GrabManager : MonoBehaviour
     {
         if (isInteracting && Input.GetMouseButton(0))
         {
-            _cursor.position = _camera.ScreenToWorldPoint(Input.mousePosition) + _camera.ScreenPointToRay(Input.mousePosition).direction * cursorDistance;
+            _cursor.position = mainCamera.ScreenToWorldPoint(Input.mousePosition) + mainCamera.ScreenPointToRay(Input.mousePosition).direction * cursorDistance;
             currentInteractable.UpdateInteraction();
             currentInteractable.Rigidbody.AddTorque(new Vector3(1,1,0) * Input.mouseScrollDelta.y * torqueSpeed);
         }
@@ -131,6 +138,6 @@ public class GrabManager : MonoBehaviour
 
     public bool DoRaycast(out RaycastHit hit, LayerMask mask)
     {
-        return Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out hit, 10.0f, mask);
+        return Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out hit, 10.0f, mask);
     }
 }

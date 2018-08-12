@@ -71,7 +71,7 @@ public class ExplorerScreen : MonoBehaviour
 		{
 			DisplayIcon(files[i]);
 			
-			yield return new WaitForSeconds(0.15f);
+			yield return new WaitForSeconds(0.1f);
 		}
 		PCManager.Instance.isLoading = false;
 	}

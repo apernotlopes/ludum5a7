@@ -96,22 +96,22 @@ public class PCManager : MonoBehaviour
 		switch (file.Extension)
 		{
 			case FileExtensions.JIF:
-				yield return new WaitForSeconds(1.5f);
+				yield return new WaitForSeconds(0.4f);
 
 				Viewer.Display((JifData)file);
 				break;
 			case FileExtensions.TXXXT:
-				yield return new WaitForSeconds(0.6f);
+				yield return new WaitForSeconds(0.2f);
 
 				Viewer.Display((TxxxtData)file);
 				break;
 			case FileExtensions.FAP:
-				yield return new WaitForSeconds(1.8f);
+				yield return new WaitForSeconds(0.6f);
 
 				Viewer.Display((FapData)file);
 				break;
 			case FileExtensions.LEL:
-				yield return new WaitForSeconds(1f);
+				yield return new WaitForSeconds(0.2f);
 
 				Viewer.Display((LelData)file);
 				break;
@@ -126,7 +126,6 @@ public class PCManager : MonoBehaviour
 	public void VirusPropagation()
 	{
 		// Check if used space > capacity
-		Debug.Log("virusvirus");
 
 		hardDrive.capacity -= (int)(initialCapacity * 0.005f);
 
@@ -209,7 +208,7 @@ public class PCManager : MonoBehaviour
 
 	private IEnumerator DelayExplorer(bool isDrive)
 	{
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.5f);
 		
 		isLoading = false;
 		
