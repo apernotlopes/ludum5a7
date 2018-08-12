@@ -65,22 +65,28 @@ public class GoalManager : MonoBehaviour
                     return !PCManager.Instance.viewerActive;
 
                 case 7:
-                    return PCManager.Instance.viewerActive;
+                    return PCManager.Instance.isTransferring;
 
                 case 8:
-                    return !PCManager.Instance.viewerActive;
+                    return !PCManager.Instance.isTransferring;
 
                 case 9:
-                    return PCManager.Instance.viewerActive;
+                    return PCManager.Instance.isTransferring;
 
                 case 10:
-                    return !PCManager.Instance.viewerActive;
+                    return !PCManager.Instance.isTransferring;
 
                 case 11:
-                    return PCManager.Instance.viewerActive;
+                    return PCManager.Instance.isTransferring;
 
                 case 12:
-                    return !PCManager.Instance.viewerActive;
+                    return !PCManager.Instance.isTransferring;
+
+                case 13:
+                    return PCManager.Instance.isTransferring;
+
+                case 14:
+                    return !PCManager.Instance.isTransferring;
 
                 default:
                     return false;
@@ -137,7 +143,7 @@ public class GoalManager : MonoBehaviour
                 text.DOText(Tutorials[index], 2.0f);
             }
         }
-        else if(index > 12)
+        else if(index > 15)
         {
             if(CountDown <= 0)
             {
