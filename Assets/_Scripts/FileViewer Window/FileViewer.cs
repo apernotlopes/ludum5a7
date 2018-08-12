@@ -32,6 +32,8 @@ public class FileViewer : MonoBehaviour
 		
 		jifAnchor.DOFade(1f, 0f);
 		jifAnchor.sprite = jif.Image;
+		jifAnchor.DOFillAmount(1f, 1f);
+
 	}
 
 	public void Display(FapData fap)
@@ -63,6 +65,7 @@ public class FileViewer : MonoBehaviour
 
 		jifAnchor.DOFade(1f, 0f);
 		jifAnchor.sprite = lelIcon;
+		jifAnchor.DOFillAmount(1f, 1f);
 		lelAnchor.clip = lel.Clip;
 		lelAnchor.Play();
 		lelAnchor.loop = true;
@@ -86,6 +89,8 @@ public class FileViewer : MonoBehaviour
 		currentFile = null;
 		
 		jifAnchor.DOFade(0f, 0f);
+		jifAnchor.DOFillAmount(0f, 0f).SetEase(Ease.Linear);
+		
 		lelAnchor.Stop();
 		fapAnchor.Stop();
 		fapAnchor.transform.GetChild(0).gameObject.SetActive(false);

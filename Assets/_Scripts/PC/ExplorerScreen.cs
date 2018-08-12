@@ -54,14 +54,26 @@ public class ExplorerScreen : MonoBehaviour
 
 	public void Display(List<FileData> files)
 	{
+		if (PCManager.Instance.isLoading) return;
+		
 		Clear();
 
+		PCManager.Instance.isLoading = true;
+
 		BGIcon.sprite = PCManager.Instance.isHardDrive ? folders[0] : folders[1];
-		
+
+		StartCoroutine(DelayDisplay(files));
+	}
+
+	private IEnumerator DelayDisplay(List<FileData> files)
+	{
 		for (int i = 0; i < files.Count; i++)
 		{
 			DisplayIcon(files[i]);
+			
+			yield return new WaitForSeconds(0.15f);
 		}
+		PCManager.Instance.isLoading = false;
 	}
 
 	public void Clear()

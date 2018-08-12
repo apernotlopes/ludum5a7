@@ -30,7 +30,7 @@ public class FloppyReader : MonoBehaviour
         currentDisk = Disk;
         currentDisk.Rigidbody.isKinematic = true;
         currentDisk.reader = this;
-
+        PCManager.Instance.isLoading = true;
         LoadingSequence = DOTween.Sequence();
         LoadingSequence.Append(Disk.transform.DORotate(floppyAnchor.rotation.eulerAngles, 1.0f));
         LoadingSequence.Join(Disk.transform.DOMove(floppyAnchor.position, 1.0f));
@@ -41,6 +41,7 @@ public class FloppyReader : MonoBehaviour
     void LoadData()
     {
         Loaded = true;
+        PCManager.Instance.isLoading = false;
         
         PCManager.Instance.DisplayExplorer(false);
 
