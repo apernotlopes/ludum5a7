@@ -4,12 +4,14 @@
     <e p="C:\Users\Siege Engineer\.Rider2018.1\system\resharper-host\Local\Transient\ReSharperHost\v12\SolutionCaches\_ludum5a7.1162678594.00" t="ExcludeRecursive" />
     <e p="D:\_projets\ludum5a7" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="_Scripts" t="Include">
           <e p="Diskettes" t="Include">
             <e p="Files" t="Include">
+              <e p="FileCategory.cs" t="Include" />
               <e p="FileData" t="Include">
                 <e p="FapData.cs" t="Include" />
                 <e p="FileData.cs" t="Include" />
@@ -23,17 +25,53 @@
             </e>
             <e p="Floppy.cs" t="Include" />
             <e p="FloppyData.cs" t="Include" />
+            <e p="FloppyDiskSpawner.cs" t="Include" />
             <e p="HardDrive.cs" t="Include" />
             <e p="Storage.cs" t="Include" />
           </e>
+          <e p="DrawCollider.cs" t="Include" />
+          <e p="FileViewer Window" t="Include">
+            <e p="FileViewer.cs" t="Include" />
+          </e>
+          <e p="FloppyReader.cs" t="Include" />
+          <e p="GoalManager.cs" t="Include" />
           <e p="Interactable" t="Include">
             <e p="GrabManager.cs" t="Include" />
             <e p="IInteractable.cs" t="Include" />
             <e p="SimpleButton.cs" t="Include" />
             <e p="SimpleInteractable.cs" t="Include" />
           </e>
+          <e p="Loading Window" t="Include">
+            <e p="LoadingWindow.cs" t="Include" />
+          </e>
+          <e p="PC" t="Include">
+            <e p="ExplorerScreen.cs" t="Include" />
+            <e p="FileIcon.cs" t="Include" />
+          </e>
           <e p="PCManager.cs" t="Include" />
         </e>
+        <e p="BootScreen.cs" t="Include" />
+        <e p="Kino" t="Include">
+          <e p="Datamosh" t="Include">
+            <e p="Datamosh.cs" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="DatamoshEditor.cs" t="Include" />
+            </e>
+            <e p="Shader" t="Include">
+              <e p="Datamosh.shader" t="Include" />
+            </e>
+          </e>
+          <e p="Tube" t="Include">
+            <e p="Editor" t="Include">
+              <e p="TubeEditor.cs" t="Include" />
+            </e>
+            <e p="Shader" t="Include">
+              <e p="TubeFx.shader" t="Include" />
+            </e>
+            <e p="Tube.cs" t="Include" />
+          </e>
+        </e>
+        <e p="MessageWindow.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Demigiant" t="Include">
             <e p="DemiLib" t="Include">
@@ -71,7 +109,32 @@
         </e>
         <e p="Resources" t="Include">
           <e p="TXXXT" t="Include">
-            <e p="clickhere.txt" t="Include" />
+            <e p="C_clickhere.txt" t="Include" />
+          </e>
+        </e>
+        <e p="TextMesh Pro Assets" t="Include">
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
         </e>
       </e>

@@ -11,23 +11,6 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1095232199419864}
   m_IsPrefabAsset: 1
---- !u!1 &1007912038418036
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4206136961285756}
-  - component: {fileID: 33288878298943246}
-  - component: {fileID: 23597037923288214}
-  m_Layer: 0
-  m_Name: model
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1095232199419864
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,18 +44,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4206136961285756
+--- !u!1 &1381095029855874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4527166165179222}
+  - component: {fileID: 33179928949006818}
+  - component: {fileID: 23682773549347268}
+  m_Layer: 0
+  m_Name: SM_FloppyDisk_00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4527166165179222
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1007912038418036}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1381095029855874}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4583989360669384}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4583989360669384
 Transform:
@@ -81,11 +81,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1095232199419864}
   m_LocalRotation: {x: 0, y: 0.23302105, z: 0, w: 0.9724717}
-  m_LocalPosition: {x: 2.707, y: -0.568, z: -5.908}
+  m_LocalPosition: {x: -6.2310963, y: -0.19997239, z: -6.5836105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4206136961285756}
   - {fileID: 4829977350084208}
+  - {fileID: 4527166165179222}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 26.95, z: 0}
@@ -100,14 +100,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4583989360669384}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23597037923288214
+--- !u!23 &23682773549347268
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1007912038418036}
+  m_GameObject: {fileID: 1381095029855874}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -117,7 +117,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 345c1fa559f162847aa8391eee4aee85, type: 2}
+  - {fileID: 2100000, guid: 4945c73706a7d7c42995556333f04bdd, type: 2}
+  - {fileID: 2100000, guid: 92c917858c5b9954a820d3989bb047f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,12 +138,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33288878298943246
+--- !u!33 &33179928949006818
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1007912038418036}
+  m_GameObject: {fileID: 1381095029855874}
   m_Mesh: {fileID: 4300000, guid: ec7b403904502b64eadf44bee4f16f66, type: 3}
 --- !u!54 &54271368055887032
 Rigidbody:
@@ -183,10 +184,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Files: []
-  totalSize: 0
+  capacity: 0
   floppyData:
     Title: 
-    Files: []
   speed: 200
   readerDetectionMask:
     serializedVersion: 2

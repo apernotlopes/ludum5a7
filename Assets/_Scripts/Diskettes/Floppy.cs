@@ -13,14 +13,19 @@ public class Floppy : Storage, IInteractable
 
     internal FloppyReader reader;
 
-    public void SetFloppy(FileData[] files)
+    public void SetFloppy(int index)
     {
         floppyData = new FloppyData();
-        totalSize = 1474560;
+        floppyData.Title = ((FileCategory)index).ToString();
 
-        for (int i = 0; i < files.Length; i++)
+        capacity = 0;
+
+        foreach (FileData d in FileGenerator.instance.allData[(FileCategory)index])
+            capacity += d.Size;
+
+        if (capacity == 0)
         {
-            AddFile(files[i]);
+            capacity = (int) (Mathf.Pow(2, 20)) * Random.Range(1,3);
         }
     }
 

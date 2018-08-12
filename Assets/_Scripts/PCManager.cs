@@ -1,5 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+using DG.Tweening;
 using UnityEngine;
 
 public enum Letters
@@ -11,20 +15,288 @@ public enum Letters
 
 public class PCManager : MonoBehaviour
 {
-	public HardDrive[] drives;
+	public static PCManager Instance;
+	
+	public FloppyReader Reader;
+	public int TransferSpeed;
+	public float sizeToTransfer;
+	public bool isTransferring;
 
-	public Floppy readingFloppy;
+	public HardDrive HardDrive;
 
-	public HardDrive GetDrive(Letters letter)
+	public ExplorerScreen Explorer;
+	public FileViewer Viewer;
+	public LoadingWindow Loading;
+	public MessageWindow Message;
+
+	public CanvasGroup ExplorerCanvas;
+	public CanvasGroup ViewerCanvas;
+	public CanvasGroup LoadingCanvas;
+	public CanvasGroup MessageCanvas;
+
+	public Texture2D hourglass;
+
+    internal bool viewerActive = false;
+    internal bool isHardDrive;
+
+    private void Awake()
 	{
-		for (int i = 0; i < drives.Length; i++)
+		Instance = this;
+	}
+
+    void Start()
+    {
+        StartCoroutine(LateStart()); 
+    }
+
+    IEnumerator LateStart()
+    {
+        yield return 0;
+        DisplayExplorer(true);
+    }
+
+	public void Clear()
+	{
+		HideAll();
+		BlockAll();
+	}
+	
+	private void HideAll()
+	{
+        ExplorerCanvas.DOFade(0f, 0f);
+		ViewerCanvas.DOFade(0f, 0f);
+		LoadingCanvas.DOFade(0f, 0f);
+		MessageCanvas.DOFade(0f, 0f);
+	}
+
+	private void BlockAll()
+	{
+		ExplorerCanvas.interactable = false;
+		ExplorerCanvas.blocksRaycasts = false;
+		ViewerCanvas.interactable = false;
+		ViewerCanvas.blocksRaycasts = false;
+		LoadingCanvas.interactable = false;
+		LoadingCanvas.blocksRaycasts = false;
+		MessageCanvas.interactable = false;
+		MessageCanvas.blocksRaycasts = false;
+	}
+	
+	public void DisplayViewer(FileData file)
+	{
+		Clear();
+
+        viewerActive = true;
+
+        ViewerCanvas.DOFade(1f, 0f);
+		ViewerCanvas.interactable = true;
+		ViewerCanvas.blocksRaycasts = true;
+		
+		switch (file.Extension)
 		{
-			if (drives[i].Letter == letter)
+			case FileExtensions.JIF:
+				Viewer.Display((JifData)file);
+				break;
+			case FileExtensions.TXXXT:
+				Viewer.Display((TxxxtData)file);
+				break;
+			case FileExtensions.FAP:
+				Viewer.Display((FapData)file);
+				break;
+			case FileExtensions.LEL:
+				Viewer.Display((LelData)file);
+				break;
+		}
+	}
+
+	public void CloseViewer()
+	{
+		viewerActive = false;
+		
+		Viewer.Clear();
+		DisplayExplorer(isHardDrive);
+	}
+
+	public void CloseLoading()
+	{
+		LoadingCanvas.DOFade(0f, 0f);
+		LoadingCanvas.blocksRaycasts = false;
+		LoadingCanvas.interactable = false;
+		
+		DisplayExplorer(isHardDrive);
+	}
+
+	public void CloseMessage()
+	{
+		DisplayExplorer(true);
+	}
+	
+	public void DisplayExplorer(bool isDrive)
+	{
+		isHardDrive = isDrive;
+		
+		Clear();
+		
+		ExplorerCanvas.DOFade(1f, 0f);
+		ExplorerCanvas.interactable = true;
+		ExplorerCanvas.blocksRaycasts = true;
+		
+		
+		if (isDrive)
+		{
+			Explorer.Display(HardDrive.Files);
+
+			Explorer.SizeDisplay.text = FileSizeCalculator.BytesToString(HardDrive.GetUsedSpace()) + "/"
+			                                                                                 +
+			                                                                                 FileSizeCalculator
+				                                                                                 .BytesToString(
+					                                                                                 HardDrive
+						                                                                                 .capacity);
+
+		}
+		else
+		{
+			if (Reader.Loaded)
 			{
-				return drives[i];
+				Explorer.Display(Reader.LoadedDisck.Files);
+				
+				Explorer.SizeDisplay.text = FileSizeCalculator.BytesToString(Reader.LoadedDisck.GetUsedSpace()) + "/"
+				                                                                                 +
+				                                                                                 FileSizeCalculator
+					                                                                                 .BytesToString(
+						                                                                                 Reader.LoadedDisck
+							                                                                                 .capacity);
+			}
+			else
+			{
+				// NO FLOPPY IN READER
+				DisplayMessage("Insert Floppy!", true);
+			}
+		}
+	}
+
+	public void TransferForReal()
+	{
+		CloseLoading();
+		
+		var file = Viewer.currentFile;
+		var transferSuccess = false;
+
+		if (isHardDrive) // check si egal a true soit isDrive
+		{
+			if (!Reader.Loaded)
+			{
+				Debug.Log("No Floppy!");
+				DisplayMessage("Insert Floppy!", true);
+			}
+			
+			if (Reader.LoadedDisck.AddFile(file))
+			{
+				HardDrive.Files.Remove(file);
+				transferSuccess = true;
+			}
+			else
+			{
+				print("Not enough space!");
+				DisplayMessage("Not enough space!", true);
+			}
+		}
+		else
+		{
+			if (HardDrive.AddFile(file))
+			{
+				Reader.LoadedDisck.Files.Remove(file);
+				transferSuccess = true;
+			}
+			else
+			{
+				print("Not enough space!");
+				DisplayMessage("Not enough space!", true);
 			}
 		}
 
-		return null;
+		if (transferSuccess)
+		{
+			// TRANSFER SUCCESS MESSAGE
+			DisplayMessage("Transfer success!", false);
+		}
+	}
+
+	public void Transfer()
+	{
+		Viewer.fapAnchor.Stop();
+		Viewer.fapAnchor.transform.GetChild(0).gameObject.SetActive(false);
+		Viewer.lelAnchor.Stop();
+		
+		
+		if (Reader.Loaded)
+		{
+			Debug.Log("transferring...");
+			Cursor.SetCursor(hourglass, Vector2.zero, CursorMode.Auto);
+			
+			LoadingCanvas.DOFade(1f, 0f);
+			LoadingCanvas.blocksRaycasts = true;
+			LoadingCanvas.interactable = true;
+
+			sizeToTransfer = Viewer.currentFile.Size;
+			isTransferring = true;
+		}
+		else
+		{
+			DisplayMessage("Insert Floppy!", true);
+		}
+	}
+
+	public void CancelTransfer()
+	{
+		EndLoading();
+
+		CloseLoading();
+	}
+
+	private void EndLoading()
+	{
+		sizeToTransfer = 0;
+		isTransferring = false;
+		Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+	}
+
+	private void Update()
+	{
+		if (isTransferring)
+		{
+			if (Reader.Loaded)
+			{
+				if (sizeToTransfer > 0) // loading
+				{
+					sizeToTransfer -= TransferSpeed * Time.deltaTime;
+					Loading.UpdateBarProgress((float)Mathf.Abs(1 - (sizeToTransfer/Viewer.currentFile.Size)));
+				}
+				if (sizeToTransfer <= 0) // loading finished
+				{
+					EndLoading();
+					
+					TransferForReal();
+				}
+			}
+			else
+			{
+				if (sizeToTransfer > 0) // loading interrupted
+				{
+					CancelTransfer();
+					DisplayMessage("Floppy removed!", true);
+				}
+			}
+		}
+	}
+
+	public void DisplayMessage(string text, bool isError)
+	{
+		Clear();
+		
+		MessageCanvas.DOFade(1f, 0f);
+		MessageCanvas.blocksRaycasts = true;
+		MessageCanvas.interactable = true;
+		
+		Message.SetWindow(text, isError);
 	}
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 public class LoadingWindow : MonoBehaviour {
 
@@ -18,6 +19,8 @@ public class LoadingWindow : MonoBehaviour {
 	public bool xEnabled;
 	public bool isTransferring;
 
+	public TextMeshProUGUI EstimatedTime;
+
 	//transfer parameters
 	public Image transferFile;
 	private RectTransform transferFileRect;
@@ -28,10 +31,10 @@ public class LoadingWindow : MonoBehaviour {
 	{
 		transferFileRect = transferFile.GetComponent<RectTransform>();
 	}
-
+	
 	public void UpdateBarProgress(float progress) 
 	{
-		loadingBar.fillAmount = Mathf.Floor(progress / 10f);
+		loadingBar.fillAmount = progress;
 	}
 	public void SetXButtonState(bool isEnabled)
 	{

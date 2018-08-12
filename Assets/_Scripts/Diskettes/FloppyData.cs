@@ -8,8 +8,6 @@ public class FloppyData
 {
     public string Title;
 
-    public List<FileData> Files;
-
     public FloppyData()
     {
         
