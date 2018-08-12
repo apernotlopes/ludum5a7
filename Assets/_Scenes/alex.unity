@@ -322,8 +322,12 @@ MonoBehaviour:
   iteractableMask:
     serializedVersion: 2
     m_Bits: 512
+  cursorMask:
+    serializedVersion: 2
+    m_Bits: 0
   torqueSpeed: 2
   cursorDistance: 4
+  cursorsImage: []
 --- !u!4 &268010080
 Transform:
   m_ObjectHideFlags: 0
@@ -1336,11 +1340,6 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114260881957050588, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
-        type: 2}
-      propertyPath: TransferSpeed
-      value: 80000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be04e6ad18fe48e4baabdd0d6d24eac5, type: 2}
