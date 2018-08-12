@@ -18,6 +18,10 @@ public class GoalManager : MonoBehaviour
 
     public AudioClip Alert;
 
+    public AudioClip[] musiques;
+    bool musiquePlaying = false;
+    int musiqueIndex;
+
     TextMeshProUGUI text;
     Image image;
 
@@ -135,8 +139,11 @@ public class GoalManager : MonoBehaviour
         }
         else if(index > 12)
         {
-            if(CountDown < 0)
+            if(CountDown <= 0)
             {
+                SoundManager.instance.StopThisClip(musiques[musiqueIndex], false);
+                image.transform.localScale = Vector3.zero;
+
                 if (!isGameOver)
                 {
                     GameOver();
@@ -144,12 +151,12 @@ public class GoalManager : MonoBehaviour
             }
             else
             {
-                CountDown -= Time.deltaTime;
                 if (!isVirusStarted)
                 {
                     isVirusStarted = true;
                     PCManager.Instance.DisplayMessage("Your Computer is infected !", true);
                 }
+
                 text.text = "Your Computer is infected ! \n Time before shutdown \n" + (int)CountDown;
 
                 if (CountDown <= awraf)
@@ -158,7 +165,17 @@ public class GoalManager : MonoBehaviour
                     image.transform.localScale = Vector3.one;
                     image.transform.DOPunchScale(Vector3.one * 1.2f, 0.5f);
                     SoundManager.instance.PlayOnEmptyTrack(Alert, false, false);
+
+                    if(musiquePlaying)
+                    {
+                        SoundManager.instance.StopThisClip(musiques[musiqueIndex], false);
+                        musiqueIndex = Mathf.Clamp(musiqueIndex + 1, 0 , musiques.Length - 1);
+                    }
+                    SoundManager.instance.PlayOnEmptyTrack(musiques[musiqueIndex], true, false);
+                    musiquePlaying = true;
                 }
+
+                CountDown -= Time.deltaTime;
             }
         }
     }
