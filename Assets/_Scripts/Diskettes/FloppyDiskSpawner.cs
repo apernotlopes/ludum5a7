@@ -5,9 +5,12 @@ using UnityEngine;
 public class FloppyDiskSpawner : MonoBehaviour 
 {
     public GameObject prefab;
-    public int numberToSpawn;
-    public int totalFile;
+    [Range(0.0f, 1.0f)] public float floppyFilesRatio;
     public float offset;
+
+    int numberOfFloppy;
+    int numberOfFile;
+    
 
 	void Start () 
 	{
@@ -16,45 +19,45 @@ public class FloppyDiskSpawner : MonoBehaviour
 
     void SpawnFloppyDisks () 
 	{
-        int averageFiles = Mathf.RoundToInt((float)totalFile / (float)numberToSpawn);
+        FileGenerator fileGen = FileGenerator.instance;
+
         List<FileData> files = new List<FileData>();
         List<Floppy> floppys = new List<Floppy>();
 
-        for (int i = 0; i < totalFile; i++)
-            files.Add(new FileData("nike alex"));
+        numberOfFloppy = fileGen.categories.Length;
+        numberOfFile = Mathf.RoundToInt((float)fileGen.Lenght * floppyFilesRatio);
 
+        int averageFiles = Mathf.RoundToInt((float)numberOfFile / (float)numberOfFloppy);
 
-        for (int i = 0; i < numberToSpawn; i++)
+        for (int i = 0; i < numberOfFloppy; i++)
         {
             Floppy newFloppy = Instantiate(prefab, transform).GetComponent<Floppy>();
-            List<FileData> newFloppyFiles = new List<FileData>();
-
-            int flieNum = Mathf.RoundToInt(Random.value * 2.0f * (float)averageFiles);
-
-            for (int j = 0; j < flieNum; j++)
-            {
-                if (files.Count <= 0) break;
-
-                int rand = Random.Range(0, files.Count);
-                newFloppyFiles.Add(files[rand]);
-                files.RemoveAt(rand);
-            }
-
-            newFloppy.SetFloppy(newFloppyFiles.ToArray());
+            newFloppy.SetFloppy(i);
             newFloppy.transform.position = transform.position + Vector3.up * offset * i;
             newFloppy.transform.rotation = Quaternion.Euler(0, Random.value * 360, 0);
             floppys.Add(newFloppy);
         }
 
-        while(files.Count > 0)
+        int safeInt = 0;
+
+        while(numberOfFile > 0)
         {
             int rand = Random.Range(0, floppys.Count);
-            int rand2 = Random.Range(0, files.Count);
+            int rand2 = Random.Range(0, fileGen.dataToSpawn.Count);
 
-            if (floppys[rand].AddFile(files[rand2]))
+            if (floppys[rand].AddFile(fileGen.dataToSpawn[rand2]))
             {
-                files.RemoveAt(rand2);
+                fileGen.dataToSpawn.RemoveAt(rand2);
+                numberOfFile--;
             }
+
+            safeInt++;
+            if (safeInt >= 1000) break;        
         }
-	}
+
+        foreach (FileData d in fileGen.dataToSpawn)
+            PCManager.Instance.HardDrive.Files.Add(d);
+
+        fileGen.dataToSpawn.Clear();
+    }
 }

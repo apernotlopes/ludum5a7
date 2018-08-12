@@ -8,7 +8,7 @@ public class Storage : MonoBehaviour
 {
 	public List<FileData> Files;
 
-	public int totalSize;
+	public int capacity;
 
 	public void Format()
 	{
@@ -17,7 +17,7 @@ public class Storage : MonoBehaviour
 	
 	public bool AddFile(FileData data)
 	{
-		if (data.Size < totalSize)
+		if (data.Size <= (capacity - GetUsedSpace()))
 		{
             Files.Add(data);
             return true;
