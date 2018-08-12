@@ -35,7 +35,7 @@ public class PCManager : MonoBehaviour
 	public CanvasGroup MessageCanvas;
 
     internal bool viewerActive = false;
-    internal bool isHardrive;
+    internal bool isHardDrive;
 
     private void Awake()
 	{
@@ -53,10 +53,14 @@ public class PCManager : MonoBehaviour
         DisplayExplorer(true);
     }
 
+	public void Clear()
+	{
+		HideAll();
+		BlockAll();
+	}
+	
 	private void HideAll()
 	{
-		
-
         ExplorerCanvas.DOFade(0f, 0f);
 		ViewerCanvas.DOFade(0f, 0f);
 		LoadingCanvas.DOFade(0f, 0f);
@@ -105,7 +109,7 @@ public class PCManager : MonoBehaviour
 	public void CloseViewer()
 	{
 		Viewer.Clear();
-		DisplayExplorer(isHardrive);
+		DisplayExplorer(isHardDrive);
 	}
 
 	public void CloseLoading()
@@ -114,7 +118,7 @@ public class PCManager : MonoBehaviour
 		LoadingCanvas.blocksRaycasts = false;
 		LoadingCanvas.interactable = false;
 		
-		DisplayExplorer(lastScreen);
+		DisplayExplorer(isHardDrive);
 	}
 
 	public void CloseMessage()
@@ -124,7 +128,7 @@ public class PCManager : MonoBehaviour
 	
 	public void DisplayExplorer(bool isDrive)
 	{
-		isHardrive = isDrive;
+		isHardDrive = isDrive;
 		
 		Clear();
 		
@@ -173,7 +177,7 @@ public class PCManager : MonoBehaviour
 		var file = Viewer.currentFile;
 		var transferSuccess = false;
 
-		if (isHardrive) // check si egal a true soit isDrive
+		if (isHardDrive) // check si egal a true soit isDrive
 		{
 			if (!Reader.Loaded)
 			{
@@ -206,7 +210,7 @@ public class PCManager : MonoBehaviour
 			}
 		}
 
-		DisplayExplorer(isHardrive);
+		DisplayExplorer(isHardDrive);
 		{
 			// TRANSFER SUCCESS MESSAGE
 			DisplayMessage("Transfer success!", false);

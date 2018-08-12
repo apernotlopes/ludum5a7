@@ -37,7 +37,7 @@ public class GoalManager : MonoBehaviour
                     return reader.Loaded;
 
                 case 2:
-                    return PCManager.Instance.isHardrive;
+                    return PCManager.Instance.isHardDrive;
 
                 case 3:
                     return PCManager.Instance.viewerActive;
