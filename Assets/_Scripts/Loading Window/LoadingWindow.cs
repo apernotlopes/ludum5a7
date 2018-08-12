@@ -33,7 +33,7 @@ public class LoadingWindow : MonoBehaviour {
 	
 	public void UpdateBarProgress(float progress) 
 	{
-		loadingBar.fillAmount = Mathf.Floor(progress / 10f);
+		loadingBar.fillAmount = progress;
 	}
 	public void SetXButtonState(bool isEnabled)
 	{

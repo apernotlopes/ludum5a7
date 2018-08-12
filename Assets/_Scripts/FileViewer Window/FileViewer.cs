@@ -18,11 +18,6 @@ public class FileViewer : MonoBehaviour
 	
 	public Sprite baseIcon;
 	public Sprite lelIcon;
-//
-//	private void Start()
-//	{
-//		Display(debugTxxxt);
-//	}
 	
 	public void Display(JifData jif)
 	{
@@ -52,6 +47,8 @@ public class FileViewer : MonoBehaviour
 	public void Display(LelData lel)
 	{
 		Clear();
+		
+		Debug.Log("Playing lel");
 
 		currentFile = lel;
 

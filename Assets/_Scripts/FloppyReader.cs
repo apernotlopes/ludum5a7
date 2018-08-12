@@ -50,5 +50,8 @@ public class FloppyReader : MonoBehaviour
         LoadingSequence.Kill();
         Loaded = false;
         currentDisk = null;
+        
+        PCManager.Instance.Viewer.Clear();
+        PCManager.Instance.DisplayExplorer(true);
     }
 }

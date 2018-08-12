@@ -18,7 +18,7 @@ public class PCManager : MonoBehaviour
 	
 	public FloppyReader Reader;
 	public int TransferSpeed;
-	private float sizeToTransfer;
+	public float sizeToTransfer;
 	public bool isTransferring;
 
 	public HardDrive HardDrive;
@@ -26,10 +26,12 @@ public class PCManager : MonoBehaviour
 	public ExplorerScreen Explorer;
 	public FileViewer Viewer;
 	public LoadingWindow Loading;
+	public MessageWindow Message;
 
 	public CanvasGroup ExplorerCanvas;
 	public CanvasGroup ViewerCanvas;
 	public CanvasGroup LoadingCanvas;
+	public CanvasGroup MessageCanvas;
 
 	private bool lastScreen;
 
@@ -41,15 +43,29 @@ public class PCManager : MonoBehaviour
 
 	public void Clear()
 	{
+		HideAll();
+		BlockAll();
+	}
+
+	private void HideAll()
+	{
+		
 		ExplorerCanvas.DOFade(0f, 0f);
+		ViewerCanvas.DOFade(0f, 0f);
+		LoadingCanvas.DOFade(0f, 0f);
+		MessageCanvas.DOFade(0f, 0f);
+	}
+
+	private void BlockAll()
+	{
 		ExplorerCanvas.interactable = false;
 		ExplorerCanvas.blocksRaycasts = false;
-		ViewerCanvas.DOFade(0f, 0f);
 		ViewerCanvas.interactable = false;
 		ViewerCanvas.blocksRaycasts = false;
-		LoadingCanvas.DOFade(0f, 0f);
 		LoadingCanvas.interactable = false;
 		LoadingCanvas.blocksRaycasts = false;
+		MessageCanvas.interactable = false;
+		MessageCanvas.blocksRaycasts = false;
 	}
 	
 	public void DisplayViewer(FileData file)
@@ -81,6 +97,20 @@ public class PCManager : MonoBehaviour
 	{
 		Viewer.Clear();
 		DisplayExplorer(lastScreen);
+	}
+
+	public void CloseLoading()
+	{
+		LoadingCanvas.DOFade(0f, 0f);
+		LoadingCanvas.blocksRaycasts = false;
+		LoadingCanvas.interactable = false;
+		
+		DisplayExplorer(lastScreen);
+	}
+
+	public void CloseMessage()
+	{
+		DisplayExplorer(true);
 	}
 	
 	public void DisplayExplorer(bool isDrive)
@@ -122,15 +152,14 @@ public class PCManager : MonoBehaviour
 			else
 			{
 				// NO FLOPPY IN READER
+				DisplayMessage("Insert Floppy!", true);
 			}
 		}
 	}
 
 	public void TransferForReal()
 	{
-		LoadingCanvas.DOFade(0f, 0f);
-		LoadingCanvas.blocksRaycasts = false;
-		LoadingCanvas.interactable = false;
+		CloseLoading();
 		
 		var file = Viewer.currentFile;
 		var transferSuccess = false;
@@ -140,7 +169,7 @@ public class PCManager : MonoBehaviour
 			if (!Reader.Loaded)
 			{
 				Debug.Log("No Floppy!");
-				return;
+				DisplayMessage("Insert Floppy!", true);
 			}
 			
 			if (Reader.LoadedDisck.AddFile(file))
@@ -151,6 +180,7 @@ public class PCManager : MonoBehaviour
 			else
 			{
 				print("Not enough space!");
+				DisplayMessage("Not enough space!", true);
 			}
 		}
 		else
@@ -163,14 +193,14 @@ public class PCManager : MonoBehaviour
 			else
 			{
 				print("Not enough space!");
+				DisplayMessage("Not enough space!", true);
 			}
 		}
 
 		if (transferSuccess)
 		{
 			// TRANSFER SUCCESS MESSAGE
-			
-			CloseViewer();
+			DisplayMessage("Transfer success!", false);
 		}
 	}
 
@@ -186,34 +216,66 @@ public class PCManager : MonoBehaviour
 
 			sizeToTransfer = Viewer.currentFile.Size;
 			isTransferring = true;
+			
+			Viewer.fapAnchor.Stop();
+			Viewer.fapAnchor.transform.GetChild(0).gameObject.SetActive(false);
+			Viewer.lelAnchor.Stop();
 		}
+		else
+		{
+			DisplayMessage("Insert Floppy!", true);
+		}
+	}
+
+	public void CancelTransfer()
+	{
+		sizeToTransfer = 0;
+		isTransferring = false;
+
+		CloseLoading();
 	}
 	
 	private void Update()
 	{
 		if (isTransferring)
 		{
-			if (sizeToTransfer > 0 && !Reader.Loaded)
+			if (Reader.Loaded)
 			{
-				sizeToTransfer = 0;
-				isTransferring = false;
-				// ERROR, floppy removed, CANCEL
+				if (sizeToTransfer > 0)
+				{
+					sizeToTransfer -= TransferSpeed * Time.deltaTime;
+					Loading.UpdateBarProgress((float)Mathf.Abs(1 - (sizeToTransfer/Viewer.currentFile.Size)));
+				}
+				if (sizeToTransfer <= 0)
+				{
+					isTransferring = false;
+					// Transfer success
+					sizeToTransfer = 0;
+					TransferForReal();
+				}
 			}
-			if (sizeToTransfer > 0 && Reader.Loaded)
+			else
 			{
-				sizeToTransfer -= TransferSpeed * Time.deltaTime;
-				Loading.UpdateBarProgress((float)sizeToTransfer/Viewer.currentFile.Size);
-			}
-
-			if (sizeToTransfer <= 0 && Reader.Loaded)
-			{
-				isTransferring = false;
-				// Transfer success
-				sizeToTransfer = 0;
-				TransferForReal();
+				if (sizeToTransfer > 0)
+				{
+					sizeToTransfer = 0;
+					isTransferring = false;
+					// ERROR, floppy removed, CANCEL
+					CancelTransfer();
+					DisplayMessage("Floppy removed!", true);
+				}
 			}
 		}
-		
 	}
-	
+
+	public void DisplayMessage(string text, bool isError)
+	{
+		Clear();
+		
+		MessageCanvas.DOFade(1f, 0f);
+		MessageCanvas.blocksRaycasts = true;
+		MessageCanvas.interactable = true;
+		
+		Message.SetWindow(text, isError);
+	}
 }
