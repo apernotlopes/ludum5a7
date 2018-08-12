@@ -444,6 +444,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1, z: 1.8}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &491583901 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114101911099689836, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1341115395}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 --- !u!1 &506151060
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +734,42 @@ Transform:
   m_Father: {fileID: 1504994821}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &677907594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1814581760831950, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1341115395}
+--- !u!114 &677907598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 677907594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8920d78589034dc458888789cabcda44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBox: {fileID: 491583901}
+  BootText:
+  - mapleOS v4.2ld (c)MapleSystems
+  - 
+  - loading LEL files...
+  - loading FAP files...
+  - loading TXXXT files...
+  - loading JIF files...
+  - 
+  - checking space on disk...
+  - 
+  - WARNING:You may run out of space soon
+  - 
+  - loading GUI...
+  - initializing animals...
+  - 
+  - done
+  totalText: 
+  isBooted: 0
+  bypassBoot: 0
 --- !u!1 &758187740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,6 +1373,101 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814581760831950, guid: be04e6ad18fe48e4baabdd0d6d24eac5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114523403688553342, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 59dffbb558e401b4182e213e2105bec4,
+        type: 3}
+    - target: {fileID: 114523403688553342, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224218313668444142, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 224218313668444142, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0.952
+      objectReference: {fileID: 0}
+    - target: {fileID: 224218313668444142, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0.714
+      objectReference: {fileID: 0}
+    - target: {fileID: 224218313668444142, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 114101911099689836, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114101911099689836, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114101911099689836, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114101911099689836, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 114101911099689836, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114101911099689836, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114101911099689836, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114101911099689836, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114101911099689836, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114101911099689836, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114101911099689836, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_fontSize
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 114101911099689836, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: m_fontSizeBase
+      value: 0.18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be04e6ad18fe48e4baabdd0d6d24eac5, type: 2}

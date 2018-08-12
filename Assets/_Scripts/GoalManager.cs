@@ -83,8 +83,12 @@ public class GoalManager : MonoBehaviour
     void Start () 
 	{
         text = GetComponent<TextMeshProUGUI>();
-        text.DOText(Tutorials[index], 2.0f);
         reader = FindObjectOfType<FloppyReader>();
+    }
+
+    public void StartTuto()
+    {
+        text.DOText(Tutorials[index], 2.0f);
     }
 	
 	void Update () 
