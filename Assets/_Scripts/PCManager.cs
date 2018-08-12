@@ -26,14 +26,19 @@ public class PCManager : MonoBehaviour
 	public CanvasGroup ExplorerCanvas;
 	public CanvasGroup ViewerCanvas;
 
-	private void Awake()
+    internal bool viewerActive = false;
+
+    private void Awake()
 	{
 		Instance = this;
 	}
 
 	public void Clear()
 	{
-		ExplorerCanvas.DOFade(0f, 0f);
+        viewerActive = false;
+        explorerActive = false;
+
+        ExplorerCanvas.DOFade(0f, 0f);
 		ExplorerCanvas.interactable = false;
 		ViewerCanvas.DOFade(0f, 0f);
 		ViewerCanvas.interactable = false;
@@ -42,8 +47,10 @@ public class PCManager : MonoBehaviour
 	public void DisplayViewer(FileData file)
 	{
 		Clear();
-		
-		ViewerCanvas.DOFade(1f, 0f);
+
+        viewerActive = true;
+
+        ViewerCanvas.DOFade(1f, 0f);
 		ViewerCanvas.interactable = true;
 		
 		switch (file.Extension)
