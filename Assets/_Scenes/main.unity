@@ -180,7 +180,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 138788872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.04, y: 5.5, z: -5.369}
+  m_LocalPosition: {x: -2.04, y: 5.52, z: -5.369}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1060182148}
@@ -220,11 +220,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 224130186783021976, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 224130186783021976, guid: 1322bb2f136c1d9449e3ddbe792fa555,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -268,7 +263,7 @@ Prefab:
     - target: {fileID: 224130186783021976, guid: 1322bb2f136c1d9449e3ddbe792fa555,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 1.172
+      value: 1.646
       objectReference: {fileID: 0}
     - target: {fileID: 224130186783021976, guid: 1322bb2f136c1d9449e3ddbe792fa555,
         type: 2}
@@ -278,7 +273,7 @@ Prefab:
     - target: {fileID: 224130186783021976, guid: 1322bb2f136c1d9449e3ddbe792fa555,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224130186783021976, guid: 1322bb2f136c1d9449e3ddbe792fa555,
         type: 2}
@@ -315,6 +310,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: BlueScreen
+      value: 
+      objectReference: {fileID: 1437638830}
     - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -325,131 +325,6 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: BlueScreen
-      value: 
-      objectReference: {fileID: 1437638830}
-    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: Tutorials.Array.data[0]
-      value: Hurry ! You need to save the most files on these floppy disks before
-        the virus infects this computer. Left click to grab a floppy!
-      objectReference: {fileID: 0}
-    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: Tutorials.Array.data[1]
-      value: Hold to move the floppy around. You can use the scroll wheel to rotate
-        it. Put the floppy into the drive to read the files!
-      objectReference: {fileID: 0}
-    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: Tutorials.Array.data[2]
-      value: Check what's on your hard drive!
-      objectReference: {fileID: 0}
-    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: Tutorials.Array.data[4]
-      value: Click on Transfer to put the file onto the floppy.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: Tutorials.Array.data[5]
-      value: You should make sure the files are transferred to the right floppy. Check
-        the labels!
-      objectReference: {fileID: 0}
-    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: Tutorials.Array.data[6]
-      value: Careful, space is limited so you might have to do some file management!
-      objectReference: {fileID: 0}
-    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: Tutorials.Array.data[7]
-      value: ' '
-      objectReference: {fileID: 0}
-    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: Tutorials.Array.data[8]
-      value: ' '
-      objectReference: {fileID: 0}
-    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: Tutorials.Array.data[9]
-      value: ' '
-      objectReference: {fileID: 0}
-    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: Tutorials.Array.data[10]
-      value: ' '
-      objectReference: {fileID: 0}
-    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: Tutorials.Array.data[11]
-      value: ' '
-      objectReference: {fileID: 0}
-    - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: Tutorials.Array.data[12]
-      value: ' '
-      objectReference: {fileID: 0}
-    - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: aac895c7622ae3145b752e987a68ecbd,
-        type: 2}
-    - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 21202010398425564, guid: aac895c7622ae3145b752e987a68ecbd,
-        type: 2}
-    - target: {fileID: 114304656879248292, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: m_UiScaleMode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 223812449051112648, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: m_RenderMode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 224130186783021976, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224130186783021976, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224130186783021976, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224131807925331946, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 224131807925331946, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224131807925331946, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224131807925331946, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
         type: 2}
       propertyPath: m_text
@@ -457,12 +332,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
         type: 2}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: -1
+      propertyPath: m_textInfo.characterCount
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
         type: 2}
-      propertyPath: m_textInfo.characterCount
+      propertyPath: m_textInfo.spaceCount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
@@ -479,16 +354,6 @@ Prefab:
         type: 2}
       propertyPath: m_textInfo.pageCount
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: m_fontSize
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
-        type: 2}
-      propertyPath: m_fontSizeBase
-      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1322bb2f136c1d9449e3ddbe792fa555, type: 2}
@@ -528,6 +393,7 @@ MonoBehaviour:
     m_Bits: 2048
   torqueSpeed: 2
   cursorDistance: 4
+  ClickSound: {fileID: 8300000, guid: e1578262259aced4b97303267a351200, type: 3}
   cursorsImage:
   - {fileID: 2800000, guid: cb3257a27f8a9f541947f76d3968dbb8, type: 3}
   - {fileID: 2800000, guid: bb95571313a5d6d469c2d2b094f64cfe, type: 3}
@@ -761,7 +627,7 @@ MonoBehaviour:
   clearColorMode: 1
   backgroundColorHDR: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 0}
   clearDepth: 1
-  renderingPath: 1
+  renderingPath: 0
   volumeLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2180,6 +2046,16 @@ Prefab:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 114260881957050588, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: transferSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c383091d314bfa43b6e45d2dbb4f084, type: 3}
+    - target: {fileID: 114260881957050588, guid: be04e6ad18fe48e4baabdd0d6d24eac5,
+        type: 2}
+      propertyPath: errorSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f3b80e7635a8da74489702206a979fb8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be04e6ad18fe48e4baabdd0d6d24eac5, type: 2}
   m_IsPrefabAsset: 0

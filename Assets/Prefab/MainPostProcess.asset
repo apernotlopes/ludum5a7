@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: MainPostProcess
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 114062737681079198}
   - {fileID: 114900568211915018}
+  - {fileID: 114551880666150736}
 --- !u!114 &114062737681079198
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -38,6 +38,30 @@ MonoBehaviour:
   _scanline:
     overrideState: 1
     value: 0.13
+--- !u!114 &114551880666150736
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: TubeSetting
+  m_EditorClassIdentifier: Assembly-CSharp:Kino:Tube/TubeSetting
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  _bleeding:
+    overrideState: 1
+    value: 0
+  _fringing:
+    overrideState: 1
+    value: 0.00027
+  _scanline:
+    overrideState: 1
+    value: 0.133
 --- !u!114 &114900568211915018
 MonoBehaviour:
   m_ObjectHideFlags: 3

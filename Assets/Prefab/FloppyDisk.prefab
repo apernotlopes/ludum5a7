@@ -191,3 +191,4 @@ MonoBehaviour:
   readerDetectionMask:
     serializedVersion: 2
     m_Bits: 1024
+  FloppyIn: {fileID: 8300000, guid: 4518e034b3495364bab8796944185515, type: 3}
