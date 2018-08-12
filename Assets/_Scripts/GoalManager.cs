@@ -43,7 +43,7 @@ public class GoalManager : MonoBehaviour
                     return PCManager.Instance.viewerActive;
 
                 case 4:
-                    return !PCManager.Instance.viewerActive;
+                    return PCManager.Instance.isTransferring;
 
                 case 5:
                     return PCManager.Instance.viewerActive;

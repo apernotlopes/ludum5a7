@@ -13,6 +13,7 @@ public class FileViewer : MonoBehaviour
 	public VideoPlayer fapAnchor;
 	public AudioSource lelAnchor;
 	public TextMeshProUGUI txxxtAnchor;
+	public TextMeshProUGUI sizeDisplay;
 
 	public FileData currentFile;
 	
@@ -25,6 +26,8 @@ public class FileViewer : MonoBehaviour
 
 		currentFile = jif;
 
+		sizeDisplay.text = "File Size: " + FileSizeCalculator.BytesToString(jif.Size);
+
 		titleBarText.text = jif.FileName + "." + jif.Extension.ToString("f");
 		
 		jifAnchor.DOFade(1f, 0f);
@@ -36,6 +39,8 @@ public class FileViewer : MonoBehaviour
 		Clear();
 
 		currentFile = fap;
+		
+		sizeDisplay.text = "File Size: " + FileSizeCalculator.BytesToString(fap.Size);
 
 		titleBarText.text = fap.FileName + "." + fap.Extension.ToString("f");
 		
@@ -51,6 +56,8 @@ public class FileViewer : MonoBehaviour
 		Debug.Log("Playing lel");
 
 		currentFile = lel;
+		
+		sizeDisplay.text = "File Size: " + FileSizeCalculator.BytesToString(lel.Size);
 
 		titleBarText.text = lel.FileName + "." + lel.Extension.ToString("f");
 
@@ -66,6 +73,8 @@ public class FileViewer : MonoBehaviour
 		Clear();
 
 		currentFile = txxxt;
+		
+		sizeDisplay.text = "File Size: " + FileSizeCalculator.BytesToString(txxxt.Size);
 		
 		titleBarText.text = txxxt.FileName + "." + txxxt.Extension.ToString("F");
 

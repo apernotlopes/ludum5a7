@@ -22,6 +22,11 @@ public class Floppy : Storage, IInteractable
 
         foreach (FileData d in FileGenerator.instance.allData[(FileCategory)index])
             capacity += d.Size;
+
+        if (capacity == 0)
+        {
+            capacity = (int) (Mathf.Pow(2, 20)) * Random.Range(1,3);
+        }
     }
 
     void Start()

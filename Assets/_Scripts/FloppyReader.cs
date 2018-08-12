@@ -43,6 +43,8 @@ public class FloppyReader : MonoBehaviour
         Loaded = true;
         
         PCManager.Instance.DisplayExplorer(false);
+
+        PCManager.Instance.Explorer.FloppyTab.text = "Floppy(A:)";
     }
 
     public void UnloadFloppy()
@@ -53,5 +55,8 @@ public class FloppyReader : MonoBehaviour
         
         PCManager.Instance.Viewer.Clear();
         PCManager.Instance.DisplayExplorer(true);
+        
+        PCManager.Instance.Explorer.FloppyTab.text = "Empty(A:)";
+
     }
 }

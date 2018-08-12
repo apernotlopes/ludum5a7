@@ -12,6 +12,8 @@ public class ExplorerScreen : MonoBehaviour
 
 	public TextMeshProUGUI SizeDisplay;
 
+	public TextMeshProUGUI FloppyTab;
+
 	public Sprite[] Icons;
 
 	public JifData debugJif;

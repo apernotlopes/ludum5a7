@@ -108,6 +108,8 @@ public class PCManager : MonoBehaviour
 
 	public void CloseViewer()
 	{
+		viewerActive = false;
+		
 		Viewer.Clear();
 		DisplayExplorer(isHardDrive);
 	}
@@ -210,7 +212,7 @@ public class PCManager : MonoBehaviour
 			}
 		}
 
-		DisplayExplorer(isHardDrive);
+		if (transferSuccess)
 		{
 			// TRANSFER SUCCESS MESSAGE
 			DisplayMessage("Transfer success!", false);
