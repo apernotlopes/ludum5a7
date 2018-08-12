@@ -20,9 +20,9 @@ public class PCManager : MonoBehaviour
 	public FloppyReader Reader;
 	public int TransferSpeed;
 	public float sizeToTransfer;
-	public bool isTransferring;
+	public bool isTransferring, isLoading;
 
-	public HardDrive HardDrive;
+	public HardDrive hardDrive;
 	private int initialCapacity;
 
 	public ExplorerScreen Explorer;
@@ -46,16 +46,11 @@ public class PCManager : MonoBehaviour
 		Instance = this;
 	}
 
-    void Start()
-    {
-        StartCoroutine(LateStart()); 
-    }
-
-    IEnumerator LateStart()
+    public IEnumerator LateStart()
     {
         yield return 0;
         DisplayExplorer(true);
-	    initialCapacity = HardDrive.capacity;
+	    initialCapacity = hardDrive.capacity;
     }
 
 	public void Clear()
@@ -88,47 +83,64 @@ public class PCManager : MonoBehaviour
 	{
 		Clear();
 
-        viewerActive = true;
+		isLoading = true;
+		viewerActive = true;
 
-        ViewerCanvas.DOFade(1f, 0f);
-		ViewerCanvas.interactable = true;
-		ViewerCanvas.blocksRaycasts = true;
+		ViewerCanvas.DOFade(1f, 0f);
 		
+		StartCoroutine(DelayedDisplay(file));
+	}
+
+	private IEnumerator DelayedDisplay(FileData file)
+	{
 		switch (file.Extension)
 		{
 			case FileExtensions.JIF:
+				yield return new WaitForSeconds(1.5f);
+
 				Viewer.Display((JifData)file);
 				break;
 			case FileExtensions.TXXXT:
+				yield return new WaitForSeconds(0.6f);
+
 				Viewer.Display((TxxxtData)file);
 				break;
 			case FileExtensions.FAP:
+				yield return new WaitForSeconds(1.8f);
+
 				Viewer.Display((FapData)file);
 				break;
 			case FileExtensions.LEL:
+				yield return new WaitForSeconds(1f);
+
 				Viewer.Display((LelData)file);
 				break;
 		}
+		
+		ViewerCanvas.interactable = true;
+		ViewerCanvas.blocksRaycasts = true;
+
+		isLoading = false;
 	}
 
 	public void VirusPropagation()
 	{
 		// Check if used space > capacity
+		Debug.Log("virusvirus");
 
-		HardDrive.capacity -= (int)(initialCapacity * 0.005f);
+		hardDrive.capacity -= (int)(initialCapacity * 0.005f);
 
-		if (HardDrive.GetUsedSpace() >= HardDrive.capacity)
+		if (hardDrive.GetUsedSpace() >= hardDrive.capacity)
 		{
 			var icon = Explorer.IconHolder.GetChild(0)?.GetComponent<FileIcon>();
 			if (icon != null)
 			{
-				HardDrive.Files.Remove(icon.fileData);
+				hardDrive.Files.Remove(icon.fileData);
 				Destroy(Explorer.IconHolder.GetChild(0).GetComponent<FileIcon>());
-				// Add sound ?
 			}
 		}
-
-		DisplayExplorer(isHardDrive);
+		
+		RefreshSizeDisplay(isHardDrive);
 	}
 
 	public void CloseViewer()
@@ -163,22 +175,47 @@ public class PCManager : MonoBehaviour
         isHardDrive = isDrive;
 		
 		Clear();
+
+		isLoading = true;
 		
 		ExplorerCanvas.DOFade(1f, 0f);
-		ExplorerCanvas.interactable = true;
-		ExplorerCanvas.blocksRaycasts = true;
+		RefreshSizeDisplay(isDrive);
 		
+		StartCoroutine(DelayExplorer(isDrive));
+	}
+
+	private void RefreshSizeDisplay(bool isDrive)
+	{
+		if (isDrive)
+		{
+			Explorer.SizeDisplay.text = FileSizeCalculator.BytesToString(hardDrive.GetUsedSpace()) + "/"
+																								   +
+																								   FileSizeCalculator
+																									   .BytesToString(
+																										   hardDrive
+																											   .capacity);
+		}
+		else if(Reader.Loaded)
+		{
+			Explorer.SizeDisplay.text = FileSizeCalculator.BytesToString(Reader.LoadedDisck.GetUsedSpace()) + "/"
+			                                                                                                +
+			                                                                                                FileSizeCalculator
+				                                                                                                .BytesToString(
+					                                                                                                Reader.LoadedDisck
+						                                                                                                .capacity);
+		}
+
+	}
+
+	private IEnumerator DelayExplorer(bool isDrive)
+	{
+		yield return new WaitForSeconds(1f);
+		
+		isLoading = false;
 		
 		if (isDrive)
 		{
-			Explorer.Display(HardDrive.Files);
-
-			Explorer.SizeDisplay.text = FileSizeCalculator.BytesToString(HardDrive.GetUsedSpace()) + "/"
-			                                                                                 +
-			                                                                                 FileSizeCalculator
-				                                                                                 .BytesToString(
-					                                                                                 HardDrive
-						                                                                                 .capacity);
+			Explorer.Display(hardDrive.Files);
 
 		}
 		else
@@ -186,13 +223,6 @@ public class PCManager : MonoBehaviour
 			if (Reader.Loaded)
 			{
 				Explorer.Display(Reader.LoadedDisck.Files);
-				
-				Explorer.SizeDisplay.text = FileSizeCalculator.BytesToString(Reader.LoadedDisck.GetUsedSpace()) + "/"
-				                                                                                 +
-				                                                                                 FileSizeCalculator
-					                                                                                 .BytesToString(
-						                                                                                 Reader.LoadedDisck
-							                                                                                 .capacity);
 			}
 			else
 			{
@@ -200,6 +230,10 @@ public class PCManager : MonoBehaviour
 				DisplayMessage("Insert Floppy!", true);
 			}
 		}
+		
+		ExplorerCanvas.interactable = true;
+		ExplorerCanvas.blocksRaycasts = true;
+
 	}
 
 	public void TransferForReal()
@@ -219,7 +253,7 @@ public class PCManager : MonoBehaviour
 			
 			if (Reader.LoadedDisck.AddFile(file))
 			{
-				HardDrive.Files.Remove(file);
+				hardDrive.Files.Remove(file);
 				transferSuccess = true;
 			}
 			else
@@ -230,7 +264,7 @@ public class PCManager : MonoBehaviour
 		}
 		else
 		{
-			if (HardDrive.AddFile(file))
+			if (hardDrive.AddFile(file))
 			{
 				Reader.LoadedDisck.Files.Remove(file);
 				transferSuccess = true;
