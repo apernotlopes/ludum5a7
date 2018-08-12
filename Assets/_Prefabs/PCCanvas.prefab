@@ -2056,11 +2056,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reader: {fileID: 0}
-  TransferSpeed: 80000
+  TransferSpeed: 250000
   sizeToTransfer: 0
   isTransferring: 0
   isLoading: 0
   hardDrive: {fileID: 0}
+  initialCapacity: 0
   Explorer: {fileID: 114770484697182540}
   Viewer: {fileID: 114473636808148074}
   Loading: {fileID: 114775620815480872}

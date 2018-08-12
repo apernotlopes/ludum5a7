@@ -143,7 +143,7 @@ public class GoalManager : MonoBehaviour
                 text.DOText(Tutorials[index], 2.0f);
             }
         }
-        else if(index > 15)
+        else if(index > 14)
         {
             if(CountDown <= 0)
             {
@@ -192,7 +192,7 @@ public class GoalManager : MonoBehaviour
         
         BlueScreen.SetActive(true);
         text.text = "Your Score : \n" + score + "\n Complete Collections Bonus : \n" +
-                    _perfectFloppy + " X " + "1000000 \n Total : \n" + (score + _perfectFloppy * 1000000);
+                    _perfectFloppy + " X " + "10.000.000 \n Total : \n" + (score + _perfectFloppy * 10000000);
 
         StartCoroutine(Restart());
     }

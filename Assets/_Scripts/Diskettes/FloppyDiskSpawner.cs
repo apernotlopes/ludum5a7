@@ -62,5 +62,6 @@ public class FloppyDiskSpawner : MonoBehaviour
         fileGen.dataToSpawn.Clear();
 
         PCManager.Instance.hardDrive.capacity = Mathf.RoundToInt(PCManager.Instance.hardDrive.GetUsedSpace() * 1.5f);
+        PCManager.Instance.initialCapacity = PCManager.Instance.hardDrive.capacity;
     }
 }
