@@ -27,6 +27,7 @@ public class GrabManager : MonoBehaviour
     public float torqueSpeed = 2.0f;
     public float cursorDistance = 4.0f;
 
+    public AudioClip ClickSound;
     public Texture2D[] cursorsImage;
 
     public bool isInteracting
@@ -99,7 +100,13 @@ public class GrabManager : MonoBehaviour
             if (PCManager.Instance.isTransferring || PCManager.Instance.isLoading)
                 index = 4;
             else
+            {
                 index = !Input.GetMouseButton(0) ? 2 : 3;
+
+                if (Input.GetMouseButtonDown(0))
+                    SoundManager.instance.PlayOnEmptyTrack(ClickSound, false, false);
+            }
+                
         }
             
 
