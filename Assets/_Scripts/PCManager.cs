@@ -11,20 +11,22 @@ public enum Letters
 
 public class PCManager : MonoBehaviour
 {
-	public HardDrive[] drives;
+	public FloppyReader Reader;
 
-	public Floppy readingFloppy;
+	public HardDrive HardDrive;
 
-	public HardDrive GetDrive(Letters letter)
+	public void DisplayViewer(FileData file)
 	{
-		for (int i = 0; i < drives.Length; i++)
-		{
-			if (drives[i].Letter == letter)
-			{
-				return drives[i];
-			}
-		}
+		
+	}
 
-		return null;
+	public void DisplayExplorer(bool isDrive)
+	{
+		
+	}
+
+	public void Transfer(FileData file, bool toDrive)
+	{
+		
 	}
 }
