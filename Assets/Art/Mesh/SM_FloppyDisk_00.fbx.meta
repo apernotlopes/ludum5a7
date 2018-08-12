@@ -6,10 +6,22 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: lambert1
+    2100002: Mat_Floppy_Disk_00
+    2100004: Mat_Metal_Light_00
     2300000: //RootNode
     3300000: //RootNode
     4300000: Floppy_Disk
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Floppy_Disk_00
+    second: {fileID: 2100000, guid: 4945c73706a7d7c42995556333f04bdd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Metal_Light_00
+    second: {fileID: 2100000, guid: 92c917858c5b9954a820d3989bb047f7, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
