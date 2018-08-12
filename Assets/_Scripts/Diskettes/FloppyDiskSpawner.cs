@@ -55,6 +55,9 @@ public class FloppyDiskSpawner : MonoBehaviour
             if (safeInt >= 1000) break;        
         }
 
-        print(safeInt);
-	}
+        foreach (FileData d in fileGen.dataToSpawn)
+            PCManager.Instance.HardDrive.Files.Add(d);
+
+        fileGen.dataToSpawn.Clear();
+    }
 }
