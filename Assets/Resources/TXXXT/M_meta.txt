@@ -1,0 +1,12 @@
+public void Display(TxxxtData txxxt)
+{
+		Clear();
+
+		currentFile = txxxt;
+		
+		sizeDisplay.text = "File Size: " + FileSizeCalculator.BytesToString(txxxt.Size);
+		
+		titleBarText.text = txxxt.FileName + "." + txxxt.Extension.ToString("F");
+
+		txxxtAnchor.text = txxxt.Text;
+}

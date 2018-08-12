@@ -18,7 +18,7 @@ public class FileGenerator : MonoBehaviour
     public TextAsset[] Txxxts;
 
     public Dictionary<FileCategory, FileData[]> allData = new Dictionary<FileCategory, FileData[]>();
-    public string[] categories = new string[] { "SOD", "C", "A", "SW", "P", "B", "O", "F" };
+    public string[] categories = new string[] { "SOD", "C", "A", "SW", "P", "B", "O", "F", "M" };
 
     public int Lenght = 0;
     public List<FileData> dataToSpawn = new List<FileData>();

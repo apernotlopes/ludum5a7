@@ -277,12 +277,12 @@ Prefab:
     - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114227599010610902, guid: 1322bb2f136c1d9449e3ddbe792fa555,
         type: 2}
@@ -352,6 +352,18 @@ Prefab:
       propertyPath: Tutorials.Array.data[12]
       value: ' '
       objectReference: {fileID: 0}
+    - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: aac895c7622ae3145b752e987a68ecbd,
+        type: 2}
+    - target: {fileID: 114136963108517766, guid: 1322bb2f136c1d9449e3ddbe792fa555,
+        type: 2}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 21202010398425564, guid: aac895c7622ae3145b752e987a68ecbd,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1322bb2f136c1d9449e3ddbe792fa555, type: 2}
   m_IsPrefabAsset: 0
