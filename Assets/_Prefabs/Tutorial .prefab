@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0c89d8369e1fc41a6ec3b672e860b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CountDown: 180
+  CountDown: 120
   Tutorials:
   - Hurry ! You need to save the most files on these floppy disks before the virus
     infects this computer. Left click to grab a floppy!
@@ -240,7 +240,13 @@ MonoBehaviour:
   BlueScreen: {fileID: 0}
   BG: {fileID: 8300000, guid: d11f945ae0cca5943a2d617d9e217a12, type: 3}
   Boot: {fileID: 8300000, guid: 495f75bcce6da7c48b5b960065eac84e, type: 3}
+  isGameOver: 0
   Alert: {fileID: 8300000, guid: f2812c92807db544f88d23bb4a0efbea, type: 3}
+  musiques:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114304656879248292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -313,8 +319,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.646, y: 2.188}
-  m_SizeDelta: {x: 3, y: 1}
+  m_AnchoredPosition: {x: 1.715, y: 2.188}
+  m_SizeDelta: {x: 2, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224131807925331946
 RectTransform:
