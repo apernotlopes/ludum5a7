@@ -17,6 +17,7 @@ public class FileIcon : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		PCManager.Instance.DisplayViewer(fileData);
+		Debug.Log("Clicked");
+		//		PCManager.Instance.DisplayViewer(fileData);
 	}
 }
