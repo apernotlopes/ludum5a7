@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
@@ -11,9 +12,18 @@ public class GoalManager : MonoBehaviour
     public string[] Tutorials;
     public GameObject BlueScreen;
 
+    public AudioClip BG;
+    public AudioClip Boot;
     public bool isGameOver;
 
+    public AudioClip Alert;
+
+    public AudioClip[] musiques;
+    bool musiquePlaying = false;
+    int musiqueIndex;
+
     TextMeshProUGUI text;
+    Image image;
 
     int _score = 0;
     int _perfectFloppy = 0;
@@ -80,13 +90,18 @@ public class GoalManager : MonoBehaviour
 
 
     FloppyReader reader;
-
+    float awraf;
     int index = 0;
 
     void Start () 
 	{
         text = GetComponent<TextMeshProUGUI>();
+        image = transform.parent.GetComponentInChildren<Image>();
         reader = FindObjectOfType<FloppyReader>();
+        SoundManager.instance.PlayOnEmptyTrack(BG, true, true, 2.0f);
+        SoundManager.instance.PlayOnEmptyTrack(Boot, false, false);
+
+        awraf = CountDown;
     }
 
     public void StartTuto()
@@ -124,8 +139,11 @@ public class GoalManager : MonoBehaviour
         }
         else if(index > 12)
         {
-            if(CountDown < 0)
+            if(CountDown <= 0)
             {
+                SoundManager.instance.StopThisClip(musiques[musiqueIndex], false);
+                image.transform.localScale = Vector3.zero;
+
                 if (!isGameOver)
                 {
                     GameOver();
@@ -133,13 +151,31 @@ public class GoalManager : MonoBehaviour
             }
             else
             {
-                CountDown -= Time.deltaTime;
                 if (!isVirusStarted)
                 {
                     isVirusStarted = true;
                     PCManager.Instance.DisplayMessage("Your Computer is infected !", true);
                 }
+
                 text.text = "Your Computer is infected ! \n Time before shutdown \n" + (int)CountDown;
+
+                if (CountDown <= awraf)
+                {
+                    awraf -= 30;
+                    image.transform.localScale = Vector3.one;
+                    image.transform.DOPunchScale(Vector3.one * 1.2f, 0.5f);
+                    SoundManager.instance.PlayOnEmptyTrack(Alert, false, false);
+
+                    if(musiquePlaying)
+                    {
+                        SoundManager.instance.StopThisClip(musiques[musiqueIndex], false);
+                        musiqueIndex = Mathf.Clamp(musiqueIndex + 1, 0 , musiques.Length - 1);
+                    }
+                    SoundManager.instance.PlayOnEmptyTrack(musiques[musiqueIndex], true, false);
+                    musiquePlaying = true;
+                }
+
+                CountDown -= Time.deltaTime;
             }
         }
     }

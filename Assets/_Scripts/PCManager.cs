@@ -35,7 +35,8 @@ public class PCManager : MonoBehaviour
 	public CanvasGroup LoadingCanvas;
 	public CanvasGroup MessageCanvas;
 
-	public Texture2D hourglass;
+    public AudioClip transferSound;
+    public AudioClip errorSound;
 
     internal bool viewerActive = false;
     internal bool isHardDrive;
@@ -114,7 +115,7 @@ public class PCManager : MonoBehaviour
 	{
 		// Check if used space > capacity
 
-		HardDrive.capacity -= (int)(initialCapacity * 0.05f);
+		HardDrive.capacity -= (int)(initialCapacity * 0.005f);
 
 		if (HardDrive.GetUsedSpace() >= HardDrive.capacity)
 		{
@@ -132,8 +133,6 @@ public class PCManager : MonoBehaviour
 
 	public void CloseViewer()
 	{
-		viewerActive = false;
-		
 		Viewer.Clear();
 		DisplayExplorer(isHardDrive);
 	}
@@ -159,7 +158,9 @@ public class PCManager : MonoBehaviour
 	
 	public void DisplayExplorer(bool isDrive)
 	{
-		isHardDrive = isDrive;
+        viewerActive = false;
+
+        isHardDrive = isDrive;
 		
 		Clear();
 		
@@ -265,6 +266,7 @@ public class PCManager : MonoBehaviour
 
 			sizeToTransfer = Viewer.currentFile.Size;
 			isTransferring = true;
+            SoundManager.instance.PlayOnEmptyTrack(transferSound, true, false);
 		}
 		else
 		{
@@ -283,7 +285,8 @@ public class PCManager : MonoBehaviour
 	{
 		sizeToTransfer = 0;
 		isTransferring = false;
-	}
+        SoundManager.instance.StopThisClip(transferSound, false);
+    }
 
 	private void Update()
 	{
@@ -323,5 +326,8 @@ public class PCManager : MonoBehaviour
 		MessageCanvas.interactable = true;
 		
 		Message.SetWindow(text, isError);
+
+        if(isError)
+            SoundManager.instance.PlayOnEmptyTrack(errorSound, false, false);
 	}
 }

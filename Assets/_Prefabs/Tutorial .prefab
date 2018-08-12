@@ -11,6 +11,23 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1551063761454072}
   m_IsPrefabAsset: 1
+--- !u!1 &1010718183790402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224877060609136594}
+  - component: {fileID: 222264255896298182}
+  - component: {fileID: 114105964438425292}
+  m_Layer: 5
+  m_Name: Skull
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1329570721090790
 GameObject:
   m_ObjectHideFlags: 0
@@ -23,7 +40,7 @@ GameObject:
   - component: {fileID: 114227599010610902}
   - component: {fileID: 114136963108517766}
   m_Layer: 5
-  m_Name: TextMeshPro Text
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +63,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114105964438425292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010718183790402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 6ab20f7c1f6815446a059429da8c5886, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &114136963108517766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,7 +109,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 
+  m_text: 'Your Computer is infected !
+
+    Time before shutdown :
+
+    000 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aac895c7622ae3145b752e987a68ecbd, type: 2}
   m_sharedMaterial: {fileID: 21202010398425564, guid: aac895c7622ae3145b752e987a68ecbd,
@@ -134,13 +182,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 0
+    characterCount: 55
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 10
+    wordCount: 8
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 4
+    pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
@@ -171,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0c89d8369e1fc41a6ec3b672e860b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CountDown: 120
+  CountDown: 180
   Tutorials:
   - Hurry ! You need to save the most files on these floppy disks before the virus
     infects this computer. Left click to grab a floppy!
@@ -190,7 +238,9 @@ MonoBehaviour:
   - ' '
   - ' '
   BlueScreen: {fileID: 0}
-  isGameOver: 0
+  BG: {fileID: 8300000, guid: d11f945ae0cca5943a2d617d9e217a12, type: 3}
+  Boot: {fileID: 8300000, guid: 495f75bcce6da7c48b5b960065eac84e, type: 3}
+  Alert: {fileID: 8300000, guid: f2812c92807db544f88d23bb4a0efbea, type: 3}
 --- !u!114 &114304656879248292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,6 +268,13 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1329570721090790}
+  m_CullTransparentMesh: 0
+--- !u!222 &222264255896298182
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010718183790402}
   m_CullTransparentMesh: 0
 --- !u!223 &223812449051112648
 Canvas:
@@ -250,13 +307,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224131807925331946}
+  - {fileID: 224877060609136594}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.172, y: 2.188}
-  m_SizeDelta: {x: 2, y: 1}
+  m_AnchoredPosition: {x: 1.646, y: 2.188}
+  m_SizeDelta: {x: 3, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224131807925331946
 RectTransform:
@@ -274,5 +332,23 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2, y: 1}
+  m_SizeDelta: {x: 3, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &224877060609136594
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010718183790402}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 224130186783021976}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.703}
+  m_SizeDelta: {x: 3, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}

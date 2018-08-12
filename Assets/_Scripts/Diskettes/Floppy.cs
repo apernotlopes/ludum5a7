@@ -11,6 +11,8 @@ public class Floppy : Storage, IInteractable
     public float speed = 200.0f;
     public LayerMask readerDetectionMask;
 
+    public AudioClip FloppyIn;
+
     internal FloppyReader reader;
 
     public void SetFloppy(int index)
@@ -55,6 +57,7 @@ public class Floppy : Storage, IInteractable
         {
             reader.UnloadFloppy();
             reader = null;
+            SoundManager.instance.PlayOnEmptyTrack(FloppyIn, false, false);
         }
 
         Rigidbody.isKinematic = false;
@@ -71,6 +74,7 @@ public class Floppy : Storage, IInteractable
         if(GrabManager.instance.DoRaycast(out _hit, readerDetectionMask))
         {
             _hit.collider?.attachedRigidbody.GetComponent<FloppyReader>().ReadFloppyDisk(this);
+            SoundManager.instance.PlayOnEmptyTrack(FloppyIn, false, false);
         }
     }
 
