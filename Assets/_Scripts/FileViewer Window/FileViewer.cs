@@ -16,20 +16,12 @@ public class FileViewer : MonoBehaviour
 	
 	public Sprite baseIcon;
 	public Sprite lelIcon;
-	
-	public JifData debugJif;
-
-	public FapData debugFap;
-
-	public LelData debugLel;
-
-	public TxxxtData debugTxxxt;
 //
 //	private void Start()
 //	{
 //		Display(debugTxxxt);
 //	}
-
+	
 	public void Display(JifData jif)
 	{
 		Clear();
@@ -59,7 +51,7 @@ public class FileViewer : MonoBehaviour
 
 		jifAnchor.DOFade(1f, 0f);
 		jifAnchor.sprite = lelIcon;
-		lelAnchor.clip = debugLel.Clip;
+		lelAnchor.clip = lel.Clip;
 		lelAnchor.Play();
 		lelAnchor.loop = true;
 	}
@@ -73,7 +65,7 @@ public class FileViewer : MonoBehaviour
 		txxxtAnchor.text = txxxt.Text;
 	}
 
-	private void Clear()
+	public void Clear()
 	{
 		jifAnchor.DOFade(0f, 0f);
 		lelAnchor.Stop();

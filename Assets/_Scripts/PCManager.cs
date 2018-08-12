@@ -26,25 +26,38 @@ public class PCManager : MonoBehaviour
 	public CanvasGroup ExplorerCanvas;
 	public CanvasGroup ViewerCanvas;
 
+	private bool lastScreen;
+
 	private void Awake()
 	{
 		Instance = this;
+	}
+
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			DisplayExplorer(true);
+		}
 	}
 
 	public void Clear()
 	{
 		ExplorerCanvas.DOFade(0f, 0f);
 		ExplorerCanvas.interactable = false;
+		ExplorerCanvas.blocksRaycasts = false;
 		ViewerCanvas.DOFade(0f, 0f);
 		ViewerCanvas.interactable = false;
+		ViewerCanvas.blocksRaycasts = false;
 	}
-
+	
 	public void DisplayViewer(FileData file)
 	{
 		Clear();
 		
 		ViewerCanvas.DOFade(1f, 0f);
 		ViewerCanvas.interactable = true;
+		ViewerCanvas.blocksRaycasts = true;
 		
 		switch (file.Extension)
 		{
@@ -62,13 +75,22 @@ public class PCManager : MonoBehaviour
 				break;
 		}
 	}
+
+	public void CloseViewer()
+	{
+		Viewer.Clear();
+		DisplayExplorer(lastScreen);
+	}
 	
 	public void DisplayExplorer(bool isDrive)
 	{
+		lastScreen = isDrive;
+		
 		Clear();
 		
 		ExplorerCanvas.DOFade(1f, 0f);
 		ExplorerCanvas.interactable = true;
+		ExplorerCanvas.blocksRaycasts = true;
 		
 		if (isDrive)
 		{
