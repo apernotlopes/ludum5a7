@@ -11,7 +11,9 @@ public class Floppy : Storage, IInteractable
     public float speed = 200.0f;
     public LayerMask readerDetectionMask;
 
-    void SetFloppy(FileData[] files)
+    internal FloppyReader reader;
+
+    public void SetFloppy(FileData[] files)
     {
         floppyData = new FloppyData();
         totalSize = 1474560;
@@ -29,6 +31,12 @@ public class Floppy : Storage, IInteractable
 
     public void BeginInteraction(Transform cursor)
     {
+        if(reader != null)
+        {
+            reader.UnloadFloppy();
+            reader = null;
+        }
+
         Rigidbody.isKinematic = false;
         Rigidbody.useGravity = false;
         Cursor = cursor;
@@ -37,6 +45,13 @@ public class Floppy : Storage, IInteractable
     public void EndInteraction()
     {
         Rigidbody.useGravity = true;
+
+        RaycastHit _hit;
+
+        if(GrabManager.instance.DoRaycast(out _hit, readerDetectionMask))
+        {
+            _hit.collider?.attachedRigidbody.GetComponent<FloppyReader>().ReadFloppyDisk(this);
+        }
     }
 
     public void UpdateInteraction()
