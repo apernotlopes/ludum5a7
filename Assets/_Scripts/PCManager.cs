@@ -17,14 +17,19 @@ public class PCManager : MonoBehaviour
 	public static PCManager Instance;
 	
 	public FloppyReader Reader;
+	public int TransferSpeed;
+	private float sizeToTransfer;
+	public bool isTransferring;
 
 	public HardDrive HardDrive;
 
 	public ExplorerScreen Explorer;
 	public FileViewer Viewer;
+	public LoadingWindow Loading;
 
 	public CanvasGroup ExplorerCanvas;
 	public CanvasGroup ViewerCanvas;
+	public CanvasGroup LoadingCanvas;
 
 	private bool lastScreen;
 
@@ -33,13 +38,6 @@ public class PCManager : MonoBehaviour
 		Instance = this;
 	}
 
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.R))
-		{
-			DisplayExplorer(true);
-		}
-	}
 
 	public void Clear()
 	{
@@ -49,6 +47,9 @@ public class PCManager : MonoBehaviour
 		ViewerCanvas.DOFade(0f, 0f);
 		ViewerCanvas.interactable = false;
 		ViewerCanvas.blocksRaycasts = false;
+		LoadingCanvas.DOFade(0f, 0f);
+		LoadingCanvas.interactable = false;
+		LoadingCanvas.blocksRaycasts = false;
 	}
 	
 	public void DisplayViewer(FileData file)
@@ -125,9 +126,14 @@ public class PCManager : MonoBehaviour
 		}
 	}
 
-	public void Transfer()
+	public void TransferForReal()
 	{
+		LoadingCanvas.DOFade(0f, 0f);
+		LoadingCanvas.blocksRaycasts = false;
+		LoadingCanvas.interactable = false;
+		
 		var file = Viewer.currentFile;
+		var transferSuccess = false;
 
 		if (lastScreen) // check si egal a true soit isDrive
 		{
@@ -140,6 +146,7 @@ public class PCManager : MonoBehaviour
 			if (Reader.LoadedDisck.AddFile(file))
 			{
 				HardDrive.Files.Remove(file);
+				transferSuccess = true;
 			}
 			else
 			{
@@ -151,13 +158,62 @@ public class PCManager : MonoBehaviour
 			if (HardDrive.AddFile(file))
 			{
 				Reader.LoadedDisck.Files.Remove(file);
+				transferSuccess = true;
 			}
 			else
 			{
 				print("Not enough space!");
 			}
 		}
-		
-		DisplayExplorer(lastScreen);
+
+		if (transferSuccess)
+		{
+			// TRANSFER SUCCESS MESSAGE
+			
+			CloseViewer();
+		}
 	}
+
+	public void Transfer()
+	{
+		if (Reader.Loaded)
+		{
+			Debug.Log("transferring...");
+			
+			LoadingCanvas.DOFade(1f, 0f);
+			LoadingCanvas.blocksRaycasts = true;
+			LoadingCanvas.interactable = true;
+
+			sizeToTransfer = Viewer.currentFile.Size;
+			isTransferring = true;
+		}
+	}
+	
+	private void Update()
+	{
+		if (isTransferring)
+		{
+			if (sizeToTransfer > 0 && !Reader.Loaded)
+			{
+				sizeToTransfer = 0;
+				isTransferring = false;
+				// ERROR, floppy removed, CANCEL
+			}
+			if (sizeToTransfer > 0 && Reader.Loaded)
+			{
+				sizeToTransfer -= TransferSpeed * Time.deltaTime;
+				Loading.UpdateBarProgress((float)sizeToTransfer/Viewer.currentFile.Size);
+			}
+
+			if (sizeToTransfer <= 0 && Reader.Loaded)
+			{
+				isTransferring = false;
+				// Transfer success
+				sizeToTransfer = 0;
+				TransferForReal();
+			}
+		}
+		
+	}
+	
 }

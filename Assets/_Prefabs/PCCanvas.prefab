@@ -631,13 +631,14 @@ GameObject:
   m_Component:
   - component: {fileID: 224697189942044828}
   - component: {fileID: 114775620815480872}
+  - component: {fileID: 225280170375444914}
   m_Layer: 0
   m_Name: LoadingWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1890316258384652
 GameObject:
   m_ObjectHideFlags: 1
@@ -1243,11 +1244,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reader: {fileID: 0}
+  TransferSpeed: 0
   HardDrive: {fileID: 0}
   Explorer: {fileID: 114770484697182540}
   Viewer: {fileID: 114473636808148074}
+  Loading: {fileID: 114775620815480872}
   ExplorerCanvas: {fileID: 225650569272807578}
   ViewerCanvas: {fileID: 225566219599972620}
+  LoadingCanvas: {fileID: 225280170375444914}
 --- !u!114 &114267712620120172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1506,11 +1510,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -1736,11 +1740,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -2153,11 +2157,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -3977,7 +3981,7 @@ RectTransform:
   m_GameObject: {fileID: 1816706753687134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5031629, y: 1.5031629, z: 1.5031629}
   m_Children:
   - {fileID: 224526253965592946}
   - {fileID: 224532742565425834}
@@ -4262,6 +4266,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1.58, y: 0.19}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225280170375444914
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816706753687134}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!225 &225566219599972620
 CanvasGroup:
   m_ObjectHideFlags: 1

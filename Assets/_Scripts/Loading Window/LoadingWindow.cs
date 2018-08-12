@@ -28,7 +28,9 @@ public class LoadingWindow : MonoBehaviour {
 	{
 		transferFileRect = transferFile.GetComponent<RectTransform>();
 	}
-
+	
+	
+	
 	public void UpdateBarProgress(float progress) 
 	{
 		loadingBar.fillAmount = Mathf.Floor(progress / 10f);
