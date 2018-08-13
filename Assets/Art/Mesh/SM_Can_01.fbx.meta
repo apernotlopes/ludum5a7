@@ -1,45 +1,20 @@
 fileFormatVersion: 2
-guid: bd2f93809866f0b42bbe5eaf080a8aea
+guid: 51e4b7b1bd69159498eb59c5188c38f8
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert1
-    2100002: Mat_Plastic_Light_00
-    2100004: Mat_Plastic_Dark_00
-    2100006: Mat_Plastic_Rough_Dark_00
-    2100008: Mat_Illum_00
-    2100010: Mat_DiskHole_00
+    2100000: Mat_Furniture_00
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Floppy_Drive
+    4300000: Can_01
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Mat_DiskHole_00
-    second: {fileID: 2100000, guid: f04dd526c5c804d45becf0d15b5d104e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Mat_Illum_00
-    second: {fileID: 2100000, guid: 1c978ac1fcb722e46b871f9ee0536d71, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Mat_Plastic_Dark_00
-    second: {fileID: 2100000, guid: ad08daf8dcc61f04c8982bf5b0fc7663, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Mat_Plastic_Light_00
-    second: {fileID: 2100000, guid: c6028af2519470a43bcfc2cee3390c02, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Mat_Plastic_Rough_Dark_00
-    second: {fileID: 2100000, guid: 4e596b01eec653d43a24e7f91e6fe73b, type: 2}
+      name: Mat_Furniture_00
+    second: {fileID: 2100000, guid: ee970a44b552d234c926fa1db225dd12, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -70,7 +45,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 10
+    globalScale: 8
     meshCompression: 0
     addColliders: 0
     importVisibility: 1

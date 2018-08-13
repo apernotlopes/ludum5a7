@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: M_Computer_Light_00
-  m_Shader: {fileID: 4800000, guid: 248df96484d477b46baaddaae5d2f7b2, type: 3}
+  m_Name: M_Furniture_00
+  m_Shader: {fileID: 4800000, guid: beb10862f7712f04d8ab411197a60f72, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -40,6 +40,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Diffuse:
+        m_Texture: {fileID: 2800000, guid: c000b79be6d339c49bf3309c276eab23, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DistortionVectorMap:
@@ -78,6 +82,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SelfIllumMask:
+        m_Texture: {fileID: 2800000, guid: 19e504291bd848a4d9a232acd06356ee, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -103,7 +111,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_9C21DD9A: 1
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -170,6 +177,7 @@ Material:
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
     - _Metallic: 0
+    - _MetallicValue: 0.5
     - _NormalMapSpace: 0
     - _NormalScale: 1
     - _PPDLodThreshold: 5
@@ -179,8 +187,9 @@ Material:
     - _PPDPrimitiveWidth: 1
     - _PreRefractionPass: 0
     - _RefractionModel: 0
+    - _RoughnessValue: 0.5
     - _SSRefractionProjectionModel: 0
-    - _SelfIllumPower: 1.36
+    - _SelfIllumPower: 2
     - _ShiverDirectionality: 0.5
     - _ShiverDrag: 0.2
     - _Smoothness: 1
@@ -214,7 +223,6 @@ Material:
     - _ZTestModeDistortion: 8
     - _ZWrite: 1
     m_Colors:
-    - Color_EC72F0C1: {r: 0, g: 1, b: 0.17416191, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
@@ -222,7 +230,7 @@ Material:
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _SelfIllumColor: {r: 0.43400002, g: 0.5649569, b: 1, a: 1}
+    - _SelfIllumColor: {r: 0.9359585, g: 1, b: 0.5990566, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}

@@ -45,9 +45,8 @@ public class BootScreen : MonoBehaviour
 		isBooted = true;
 		FindObjectOfType<GoalManager>().StartTuto();
 		FindObjectOfType<FloppyDiskSpawner>().SpawnFloppyDisks();
-		
-		StartCoroutine(PCManager.Instance.LateStart()); 
-		this.gameObject.SetActive(false);
 
+        PCManager.Instance.StartCoroutine(PCManager.Instance.LateStart()); 
+		this.gameObject.SetActive(false);
 	}
 }

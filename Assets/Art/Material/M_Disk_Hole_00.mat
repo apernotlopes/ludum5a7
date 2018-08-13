@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: M_Computer_Light_00
+  m_Name: M_Disk_Hole_00
   m_Shader: {fileID: 4800000, guid: 248df96484d477b46baaddaae5d2f7b2, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -180,7 +180,7 @@ Material:
     - _PreRefractionPass: 0
     - _RefractionModel: 0
     - _SSRefractionProjectionModel: 0
-    - _SelfIllumPower: 1.36
+    - _SelfIllumPower: 1
     - _ShiverDirectionality: 0.5
     - _ShiverDrag: 0.2
     - _Smoothness: 1
@@ -222,7 +222,7 @@ Material:
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _SelfIllumColor: {r: 0.43400002, g: 0.5649569, b: 1, a: 1}
+    - _SelfIllumColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
