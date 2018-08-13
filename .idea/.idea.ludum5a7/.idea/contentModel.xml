@@ -52,6 +52,7 @@
           <e p="PCManager.cs" t="Include" />
         </e>
         <e p="BootScreen.cs" t="Include" />
+        <e p="DELMat.cs" t="Include" />
         <e p="Kino" t="Include">
           <e p="Datamosh" t="Include">
             <e p="Datamosh.cs" t="Include" />
@@ -117,6 +118,10 @@
             <e p="SOD_tracklist.txt" t="Include" />
             <e p="SW_superior.txt" t="Include" />
           </e>
+        </e>
+        <e p="Script" t="Include">
+          <e p="SoundCarrier.cs" t="Include" />
+          <e p="SoundManager.cs" t="Include" />
         </e>
         <e p="TextMesh Pro Assets" t="Include">
           <e p="Resources" t="Include">
