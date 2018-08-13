@@ -189,7 +189,7 @@ Material:
     - _RefractionModel: 0
     - _RoughnessValue: 0.5
     - _SSRefractionProjectionModel: 0
-    - _SelfIllumPower: 1
+    - _SelfIllumPower: 2
     - _ShiverDirectionality: 0.5
     - _ShiverDrag: 0.2
     - _Smoothness: 1
@@ -230,7 +230,7 @@ Material:
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _SelfIllumColor: {r: 0.9447802, g: 0.990566, b: 0.06074228, a: 0}
+    - _SelfIllumColor: {r: 0.9359585, g: 1, b: 0.5990566, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
